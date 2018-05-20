@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.leavesc.databinding_demo.model.Goods" />
+
+        <import type="com.leavesc.databinding_demo.Main3Activity.GoodsHandler" />
+
+        <variable
+            name="goods"
+            type="Goods" />
+
+        <variable
+            name="goodsHandler"
+            type="GoodsHandler" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".Main3Activity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{goods.name}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{goods.details}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(goods.price)}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->goodsHandler.changeGoodsName()}"
+            android:text="改变属性 name 和 price"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->goodsHandler.changeGoodsDetails()}"
+            android:text="改变属性 details 和 price"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.leavesc.databinding_demo.model.Image" />
+
+        <import type="com.leavesc.databinding_demo.Main8Activity.Handler" />
+
+        <variable
+            name="image"
+            type="Image" />
+
+        <variable
+            name="handler"
+            type="Handler" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Main8Activity">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher_background"
+            bind:url="@{image.url}" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->handler.onClick(image)}"
+            android:text='@{"改变图片Url"}'
+            android:textAllCaps="false"
+            bind:layout_constraintTop_toBottomOf="@id/image" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@{"xxx"}'
+            android:textAllCaps="false"
+            bind:layout_constraintTop_toBottomOf="@id/button" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

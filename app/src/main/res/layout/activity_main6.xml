@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.leavesc.databinding_demo.Main6Activity.Handler" />
+
+        <import type="com.leavesc.databinding_demo.model.User" />
+
+        <variable
+            name="handler"
+            type="Handler" />
+
+        <variable
+            name="userInfo"
+            type="User" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Main6Activity">
+
+        <Button
+            android:id="@+id/btn_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{handler::onClick}"
+            android:text="显示" />
+
+        <include
+            layout="@layout/view_include"
+            bind:userInfo="@{userInfo}" />
+
+        <ViewStub
+            android:id="@+id/view_stub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/view_stub" />
+
+    </LinearLayout>
+</layout>
