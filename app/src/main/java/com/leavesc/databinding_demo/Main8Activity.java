@@ -56,4 +56,8 @@ public class Main8Activity extends AppCompatActivity {
         return text + "-conversionString";
     }
 
+    public void test() {
+
+    }
+
 }
