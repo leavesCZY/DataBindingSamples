@@ -39,7 +39,8 @@
             android:id="@+id/view_stub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout="@layout/view_stub" />
+            android:layout="@layout/view_stub"
+            bind:userInfo="@{userInfo}" />
 
     </LinearLayout>
 </layout>

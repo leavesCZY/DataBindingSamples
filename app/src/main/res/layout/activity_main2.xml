@@ -22,7 +22,7 @@
             android:id="@+id/tv_userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{userInfo.name}" />
+            android:text="@{userInfo.name,default=defaultValue}" />
 
         <TextView
             android:layout_width="match_parent"

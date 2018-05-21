@@ -39,6 +39,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="startActivity12"
+            android:text="ObservableCollection"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="startActivity5"
             android:text="事件绑定" />
 
@@ -67,6 +74,13 @@
             android:layout_height="wrap_content"
             android:onClick="startActivity9"
             android:text="引用资源" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startActivity11"
+            android:textAllCaps="false"
+            android:text="Fragment" />
 
     </LinearLayout>
 </ScrollView>

@@ -5,10 +5,10 @@ import android.databinding.BindingConversion;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.leavesc.databinding_demo.databinding.ActivityMain8Binding;
@@ -59,8 +59,25 @@ public class Main8Activity extends AppCompatActivity {
 //    }
 
     @BindingConversion
-    public static ColorDrawable conversionColor(int color) {
-        return new ColorDrawable(color);
+    public static Drawable convertStringToDrawable(String str) {
+        if (str.equals("红色")) {
+            return new ColorDrawable(Color.parseColor("#FF4081"));
+        }
+        if (str.equals("蓝色")) {
+            return new ColorDrawable(Color.parseColor("#3F51B5"));
+        }
+        return new ColorDrawable(Color.parseColor("#344567"));
+    }
+
+    @BindingConversion
+    public static int convertStringToColor(String str) {
+        if (str.equals("红色")) {
+            return Color.parseColor("#FF4081");
+        }
+        if (str.equals("蓝色")) {
+            return Color.parseColor("#3F51B5");
+        }
+        return Color.parseColor("#344567");
     }
 
 }

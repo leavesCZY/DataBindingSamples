@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(Main4Activity.class);
     }
 
+    public void startActivity12(View view) {
+        startActivity(Main12Activity.class);
+    }
+
     public void startActivity5(View view) {
         startActivity(Main5Activity.class);
     }
@@ -51,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void startActivity10(View view) {
         startActivity(Main10Activity.class);
+    }
+
+    public void startActivity11(View view) {
+        startActivity(Main11Activity.class);
     }
 
 }

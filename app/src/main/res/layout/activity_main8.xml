@@ -48,11 +48,25 @@
             bind:layout_constraintTop_toBottomOf="@id/button" />
 
         <TextView
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@{image.url.length()>2 ? @color/colorPrimary : @color/colorPrimaryDark}"
-            android:textAllCaps="false"
+            android:layout_marginTop="30dp"
+            android:background='@{"红色"}'
+            android:padding="20dp"
+            android:text="红色背景蓝色字"
+            android:textColor='@{"蓝色"}'
             bind:layout_constraintTop_toBottomOf="@id/textView" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background='@{"蓝色"}'
+            android:padding="20dp"
+            android:text="蓝色背景红色字"
+            android:textColor='@{"红色",default=@color/colorAccent}'
+            bind:layout_constraintTop_toBottomOf="@id/textView1" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#abc"
-    android:gravity="center"
-    android:padding="20dp"
-    android:text="这是ViewStub" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.leavesc.databinding_demo.model.User"/>
+
+        <variable
+            name="userInfo"
+            type="User"/>
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#abc"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="@{userInfo.name}"/>
+
+</layout>

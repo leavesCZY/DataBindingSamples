@@ -1,8 +1,10 @@
 package com.leavesc.databinding_demo;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.Observable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.leavesc.databinding_demo.databinding.ActivityMain3Binding;
 import com.leavesc.databinding_demo.model.Goods;
@@ -20,6 +22,8 @@ public class Main3Activity extends AppCompatActivity {
 
     private ActivityMain3Binding activityMain3Binding;
 
+    private static final String TAG = "Main3Activity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,20 @@ public class Main3Activity extends AppCompatActivity {
         goods = new Goods("code", "hi", 24);
         activityMain3Binding.setGoods(goods);
         activityMain3Binding.setGoodsHandler(new GoodsHandler());
+        goods.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                if (propertyId == com.leavesc.databinding_demo.BR.name) {
+                    Log.e(TAG, "BR.name");
+                } else if (propertyId == com.leavesc.databinding_demo.BR.details) {
+                    Log.e(TAG, "BR.details");
+                } else if (propertyId == com.leavesc.databinding_demo.BR._all) {
+                    Log.e(TAG, "BR._all");
+                } else {
+                    Log.e(TAG, "未知");
+                }
+            }
+        });
     }
 
     public class GoodsHandler {
