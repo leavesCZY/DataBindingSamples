@@ -3,6 +3,8 @@ package com.leavesc.databinding_demo;
 import android.databinding.BindingAdapter;
 import android.databinding.BindingConversion;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -46,18 +48,19 @@ public class Main8Activity extends AppCompatActivity {
         Log.e(TAG, "loadImage url : " + url);
     }
 
-    @BindingAdapter("android:text")
-    public static void setText(Button view, String text) {
-        view.setText(text + "-Button");
-    }
+//    @BindingAdapter("android:text")
+//    public static void setText(Button view, String text) {
+//        view.setText(text + "-Button");
+//    }
+//
+//    @BindingConversion
+//    public static String conversionString(String text) {
+//        return text + "-conversionString";
+//    }
 
     @BindingConversion
-    public static String conversionString(String text) {
-        return text + "-conversionString";
-    }
-
-    public void test() {
-
+    public static ColorDrawable conversionColor(int color) {
+        return new ColorDrawable(color);
     }
 
 }

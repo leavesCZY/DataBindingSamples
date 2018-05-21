@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="java.util.List" />
+
+        <import type="java.util.Map" />
+
+        <import type="java.util.Set" />
+
+        <import type="android.util.SparseArray" />
+
+        <variable
+            name="array"
+            type="String[]" />
+
+        <variable
+            name="list"
+            type="List&lt;String&gt;" />
+
+        <variable
+            name="map"
+            type="Map&lt;String, String&gt;" />
+
+        <variable
+            name="set"
+            type="Set&lt;String&gt;" />
+
+        <variable
+            name="sparse"
+            type="SparseArray&lt;String&gt;" />
+
+        <variable
+            name="index"
+            type="int" />
+
+        <variable
+            name="key"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Main7Activity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{array[1]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{sparse[index]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{list[index]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{map[key]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@{map["leavesC"]}' />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@{set.contains("xxx")?"xxx":key}' />
+    </LinearLayout>
+</layout>

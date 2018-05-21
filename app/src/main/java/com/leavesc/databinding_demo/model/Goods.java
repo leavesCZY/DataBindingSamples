@@ -50,4 +50,13 @@ public class Goods extends BaseObservable {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "name='" + name + '\'' +
+                ", details='" + details + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
 }

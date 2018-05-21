@@ -40,11 +40,19 @@
             bind:layout_constraintTop_toBottomOf="@id/image" />
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text='@{"xxx"}'
             android:textAllCaps="false"
             bind:layout_constraintTop_toBottomOf="@id/button" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@{image.url.length()>2 ? @color/colorPrimary : @color/colorPrimaryDark}"
+            android:textAllCaps="false"
+            bind:layout_constraintTop_toBottomOf="@id/textView" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
