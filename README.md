@@ -1,4 +1,4 @@
-# 这里我对 DataBinding 框架的学习笔记，希望对你有帮助，也希望能给个 star
+# 这里我对 DataBinding 框架的学习笔记，希望对你有所帮助，然后给个 Star ？
 
 DataBinding 是谷歌官方发布的一个框架，顾名思义即为数据绑定，是 MVVM 模式在 Android 上的一种实现，用于降低布局和逻辑的耦合性，使代码逻辑更加清晰。MVVM 相对于 MVP，其实就是将 Presenter 层替换成了 ViewModel 层。DataBinding 能够省去我们一直以来的 findViewById() 步骤，大量减少 Activity 内的代码，数据能够单向或双向绑定到 layout 文件中，有助于防止内存泄漏，而且能自动进行空检测以避免空指针异常
 
