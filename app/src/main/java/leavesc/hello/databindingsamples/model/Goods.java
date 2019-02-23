@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo.model;
+package leavesc.hello.databindingsamples.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -28,7 +28,7 @@ public class Goods extends BaseObservable {
     public void setName(String name) {
         this.name = name;
         //只更新本字段
-        notifyPropertyChanged(com.leavesc.databinding_demo.BR.name);
+        notifyPropertyChanged(leavesc.hello.databindingsamples.BR.name);
     }
 
     @Bindable

@@ -1,7 +1,7 @@
-package com.leavesc.databinding_demo;
+package leavesc.hello.databindingsamples;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * 作者：叶应是叶

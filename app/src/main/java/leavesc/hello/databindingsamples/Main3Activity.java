@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo;
+package leavesc.hello.databindingsamples;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.Observable;
@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.leavesc.databinding_demo.databinding.ActivityMain3Binding;
-import com.leavesc.databinding_demo.model.Goods;
+import leavesc.hello.databindingsamples.databinding.ActivityMain3Binding;
 
 import java.util.Random;
+
+import leavesc.hello.databindingsamples.model.Goods;
 
 /**
  * 作者：叶应是叶
@@ -35,11 +36,11 @@ public class Main3Activity extends AppCompatActivity {
         goods.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
-                if (propertyId == com.leavesc.databinding_demo.BR.name) {
+                if (propertyId == leavesc.hello.databindingsamples.BR.name) {
                     Log.e(TAG, "BR.name");
-                } else if (propertyId == com.leavesc.databinding_demo.BR.details) {
+                } else if (propertyId == leavesc.hello.databindingsamples.BR.details) {
                     Log.e(TAG, "BR.details");
-                } else if (propertyId == com.leavesc.databinding_demo.BR._all) {
+                } else if (propertyId == leavesc.hello.databindingsamples.BR._all) {
                     Log.e(TAG, "BR._all");
                 } else {
                     Log.e(TAG, "未知");

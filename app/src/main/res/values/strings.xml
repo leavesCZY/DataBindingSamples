@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DataBinding_Demo</string>
+    <string name="app_name">DataBindingSamples</string>
     <string name="format">%s is %s</string>
 
     <!-- TODO: Remove or change this placeholder text -->

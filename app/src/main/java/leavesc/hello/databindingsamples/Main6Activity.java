@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo;
+package leavesc.hello.databindingsamples;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -7,9 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 
-import com.leavesc.databinding_demo.databinding.ActivityMain6Binding;
-import com.leavesc.databinding_demo.databinding.ViewStubBinding;
-import com.leavesc.databinding_demo.model.User;
+import leavesc.hello.databindingsamples.databinding.ActivityMain6Binding;
+import leavesc.hello.databindingsamples.databinding.ViewStubBinding;
+
+import leavesc.hello.databindingsamples.model.User;
 
 /**
  * 作者：叶应是叶

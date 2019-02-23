@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo.model;
+package leavesc.hello.databindingsamples.model;
 
 import android.databinding.ObservableField;
 

@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo;
+package leavesc.hello.databindingsamples;
 
 import org.junit.Test;
 

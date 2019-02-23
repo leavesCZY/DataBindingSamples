@@ -4,9 +4,9 @@
 
     <data>
 
-        <import type="com.leavesc.databinding_demo.model.ObservableGoods" />
+        <import type="leavesc.hello.databindingsamples.model.ObservableGoods" />
 
-        <import type="com.leavesc.databinding_demo.Main4Activity.ObservableGoodsHandler" />
+        <import type="leavesc.hello.databindingsamples.Main4Activity.ObservableGoodsHandler" />
 
         <variable
             name="observableGoods"
@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
-        tools:context=".Main4Activity">
+        tools:context="com.leavesc.databindingsamples.Main4Activity">
 
         <TextView
             android:layout_width="match_parent"

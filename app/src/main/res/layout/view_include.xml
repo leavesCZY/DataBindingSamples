@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="com.leavesc.databinding_demo.model.User" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
 
         <variable
             name="userInfo"

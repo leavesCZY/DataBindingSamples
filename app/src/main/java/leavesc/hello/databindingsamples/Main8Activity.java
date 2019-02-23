@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo;
+package leavesc.hello.databindingsamples;
 
 import android.databinding.BindingAdapter;
 import android.databinding.BindingConversion;
@@ -11,10 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.leavesc.databinding_demo.databinding.ActivityMain8Binding;
-import com.leavesc.databinding_demo.model.Image;
+import leavesc.hello.databindingsamples.databinding.ActivityMain8Binding;
 
 import java.util.Random;
+
+import leavesc.hello.databindingsamples.model.Image;
 
 /**
  * 作者：叶应是叶

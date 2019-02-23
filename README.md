@@ -43,7 +43,7 @@ android {
 这里先来声明一个 Modle 
 
 ```java
-package com.leavesc.databinding_demo.model;
+package leavesc.hello.databindingsamples.model;
 
 /**
  * 作者：叶应是叶
@@ -66,7 +66,7 @@ public class User {
     <data>
         <variable
             name="userInfo"
-            type="com.leavesc.databinding_demo.model.User" />
+            type="leavesc.hello.databindingsamples.model.User" />
     </data>
 ```
 
@@ -74,7 +74,7 @@ public class User {
 
 ```java
     <data>
-        <import type="com.leavesc.databinding_demo.model.User"/>
+        <import type="leavesc.hello.databindingsamples.model.User"/>
         <variable
             name="userInfo"
             type="User"/>
@@ -85,10 +85,10 @@ public class User {
 
 ```xml
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
         <import
             alias="TempUser"
-            type="com.leavesc.databinding_demo.model2.User" />
+            type="leavesc.hello.databindingsamples.model2.User" />
         <variable
             name="userInfo"
             type="User" />
@@ -107,7 +107,7 @@ public class User {
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
         <variable
             name="userInfo"
             type="User" />
@@ -118,7 +118,7 @@ public class User {
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:orientation="vertical"
-        tools:context="com.leavesc.databinding_demo.Main2Activity">
+        tools:context="leavesc.hello.databindingsamples.Main2Activity">
 
         <TextView
             android:id="@+id/tv_userName"
@@ -224,7 +224,7 @@ public class Goods extends BaseObservable {
     public void setName(String name) {
         this.name = name;
         //只更新本字段
-        notifyPropertyChanged(com.leavesc.databinding_demo.BR.name);
+        notifyPropertyChanged(leavesc.hello.databindingsamples.BR.name);
     }
 
     @Bindable
@@ -259,8 +259,8 @@ public class Goods extends BaseObservable {
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.Goods" />
-        <import type="com.leavesc.databinding_demo.Main3Activity.GoodsHandler" />
+        <import type="leavesc.hello.databindingsamples.model.Goods" />
+        <import type="leavesc.hello.databindingsamples.Main3Activity.GoodsHandler" />
         <variable
             name="goods"
             type="Goods" />
@@ -354,11 +354,11 @@ public class Main3Activity extends AppCompatActivity {
         goods.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
-                if (propertyId == com.leavesc.databinding_demo.BR.name) {
+                if (propertyId == leavesc.hello.databindingsamples.BR.name) {
                     Log.e(TAG, "BR.name");
-                } else if (propertyId == com.leavesc.databinding_demo.BR.details) {
+                } else if (propertyId == leavesc.hello.databindingsamples.BR.details) {
                     Log.e(TAG, "BR.details");
-                } else if (propertyId == com.leavesc.databinding_demo.BR._all) {
+                } else if (propertyId == leavesc.hello.databindingsamples.BR._all) {
                     Log.e(TAG, "BR._all");
                 } else {
                     Log.e(TAG, "未知");
@@ -427,7 +427,7 @@ dataBinding 也提供了包装类用于替代原生的 `List` 和 `Map`，分别
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.leavesc.databinding_demo.Main12Activity">
+        tools:context="leavesc.hello.databindingsamples.Main12Activity">
 
         <TextView
             ···
@@ -487,7 +487,7 @@ dataBinding 也提供了包装类用于替代原生的 `List` 和 `Map`，分别
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.ObservableGoods"/>
+        <import type="leavesc.hello.databindingsamples.model.ObservableGoods"/>
         <variable
             name="goods"
             type="ObservableGoods" />
@@ -566,8 +566,8 @@ public class UserPresenter {
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
-        <import type="com.leavesc.databinding_demo.MainActivity.UserPresenter" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
+        <import type="leavesc.hello.databindingsamples.MainActivity.UserPresenter" />
         <variable
             name="userInfo"
             type="User" />
@@ -581,7 +581,7 @@ public class UserPresenter {
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:orientation="vertical"
-        tools:context="com.leavesc.databinding_demo.MainActivity">
+        tools:context="leavesc.hello.databindingsamples.MainActivity">
 
         <TextView
             ···
@@ -627,7 +627,7 @@ public class StringUtils {
 在 data 标签中导入该工具类
 
 ```xml
- <import type="com.leavesc.databinding_demo.StringUtils" />
+ <import type="leavesc.hello.databindingsamples.StringUtils" />
 ```
 
 然后就可以像对待一般的函数一样来调用了
@@ -718,7 +718,7 @@ DataBinding 也会自动帮助我们避免空指针异常
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
         <variable
             name="userInfo"
             type="User" />
@@ -749,7 +749,7 @@ DataBinding 也会自动帮助我们避免空指针异常
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
         <variable
             name="userInfo"
             type="User" />
@@ -840,7 +840,7 @@ dataBinding 提供了 **BindingAdapter** 这个注解用于支持自定义属性
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.Image" />
+        <import type="leavesc.hello.databindingsamples.model.Image" />
         <variable
             name="image"
             type="Image" />

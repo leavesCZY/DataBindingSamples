@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo;
+package leavesc.hello.databindingsamples;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.widget.Toast;
 
-import com.leavesc.databinding_demo.databinding.ActivityMain5Binding;
-import com.leavesc.databinding_demo.model.User;
+import leavesc.hello.databindingsamples.databinding.ActivityMain5Binding;
+import leavesc.hello.databindingsamples.model.User;
 
 /**
  * 作者：叶应是叶

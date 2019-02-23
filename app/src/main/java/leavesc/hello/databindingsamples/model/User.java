@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo.model;
+package leavesc.hello.databindingsamples.model;
 
 /**
  * 作者：叶应是叶

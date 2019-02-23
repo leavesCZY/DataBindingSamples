@@ -1,4 +1,4 @@
-package com.leavesc.databinding_demo;
+package leavesc.hello.databindingsamples;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.leavesc.databinding_demo.databinding.FragmentBlankBinding;
+import leavesc.hello.databindingsamples.databinding.FragmentBlankBinding;
 
 /**
  * 作者：叶应是叶

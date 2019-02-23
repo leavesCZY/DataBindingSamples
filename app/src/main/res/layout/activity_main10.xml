@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
-        <import type="com.leavesc.databinding_demo.model.ObservableGoods"/>
+        <import type="leavesc.hello.databindingsamples.model.ObservableGoods" />
 
         <variable
             name="goods"
@@ -15,8 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Main10Activity">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"

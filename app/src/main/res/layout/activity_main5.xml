@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
-        <import type="com.leavesc.databinding_demo.model.User" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
 
-        <import type="com.leavesc.databinding_demo.Main5Activity.UserPresenter" />
+        <import type="leavesc.hello.databindingsamples.Main5Activity.UserPresenter" />
 
-        <import type="com.leavesc.databinding_demo.StringUtils" />
+        <import type="leavesc.hello.databindingsamples.StringUtils" />
 
         <variable
             name="userInfo"
@@ -23,8 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:orientation="vertical"
-        tools:context="com.leavesc.databinding_demo.Main5Activity">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"

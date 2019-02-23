@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
-        <import type="com.leavesc.databinding_demo.model.User" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
 
         <variable
             name="userInfo"
@@ -15,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:orientation="vertical"
-        tools:context="com.leavesc.databinding_demo.Main2Activity">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_userName"

@@ -5,13 +5,13 @@
 
     <data>
 
-        <import type="com.leavesc.databinding_demo.model.Image" />
+        <import type="leavesc.hello.databindingsamples.model.Image" />
 
-        <import type="com.leavesc.databinding_demo.Main8Activity.Handler" />
+        <import type="leavesc.hello.databindingsamples.Main8Activity.Handler" />
 
         <variable
             name="image"
-            type="Image" />
+            type="leavesc.hello.databindingsamples.model.Image" />
 
         <variable
             name="handler"
@@ -20,8 +20,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Main8Activity">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/image"

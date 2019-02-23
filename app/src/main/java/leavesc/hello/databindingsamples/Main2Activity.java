@@ -1,11 +1,12 @@
-package com.leavesc.databinding_demo;
+package leavesc.hello.databindingsamples;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.leavesc.databinding_demo.databinding.ActivityMain2Binding;
-import com.leavesc.databinding_demo.model.User;
+import leavesc.hello.databindingsamples.databinding.ActivityMain2Binding;
+
+import leavesc.hello.databindingsamples.model.User;
 
 /**
  * 作者：叶应是叶
