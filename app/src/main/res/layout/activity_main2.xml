@@ -17,6 +17,10 @@
         android:orientation="vertical">
 
         <TextView
+            android:text="单向数据绑定"
+            style="@style/titleTextStyle" />
+
+        <TextView
             android:id="@+id/tv_userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

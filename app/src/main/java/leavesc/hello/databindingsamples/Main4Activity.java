@@ -24,7 +24,6 @@ public class Main4Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
         activityMain4Binding = DataBindingUtil.setContentView(this, R.layout.activity_main4);
         observableGoods = new ObservableGoods("code", "hello", 25);
         activityMain4Binding.setObservableGoods(observableGoods);

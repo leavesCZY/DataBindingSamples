@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import leavesc.hello.databindingsamples.databinding.ActivityMain3Binding;
-
 import java.util.Random;
 
+import leavesc.hello.databindingsamples.databinding.ActivityMain3Binding;
 import leavesc.hello.databindingsamples.model.Goods;
 
 /**
@@ -28,7 +27,6 @@ public class Main3Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
         activityMain3Binding = DataBindingUtil.setContentView(this, R.layout.activity_main3);
         goods = new Goods("code", "hi", 24);
         activityMain3Binding.setGoods(goods);

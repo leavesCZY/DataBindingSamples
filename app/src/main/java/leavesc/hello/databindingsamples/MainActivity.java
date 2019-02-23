@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(Main2Activity.class);
     }
 
+
+
     public void startActivity3(View view) {
         startActivity(Main3Activity.class);
     }
