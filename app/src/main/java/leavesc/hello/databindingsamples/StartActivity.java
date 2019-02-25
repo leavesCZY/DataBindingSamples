@@ -72,4 +72,9 @@ public class StartActivity extends AppCompatActivity {
         startActivity(Main12Activity.class);
     }
 
+    //ObservableArrayList
+    public void startActivity13(View view) {
+        startActivity(Main13Activity.class);
+    }
+
 }
