@@ -3,53 +3,41 @@ package leavesc.hello.databindingsamples;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewStub;
+import android.text.Editable;
+import android.widget.Toast;
 
 import leavesc.hello.databindingsamples.databinding.ActivityMain6Binding;
-import leavesc.hello.databindingsamples.databinding.ViewStubBinding;
-
 import leavesc.hello.databindingsamples.model.User;
 
-/**
- * 作者：叶应是叶
- * 时间：2018/5/19 10:51
- * 描述：
- */
 public class Main6Activity extends AppCompatActivity {
 
-    private ActivityMain6Binding activityMain6Binding;
+    private ActivityMain6Binding binding;
 
     private User user;
-
-    private static final String TAG = "Main6Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityMain6Binding = DataBindingUtil.setContentView(this, R.layout.activity_main6);
-        activityMain6Binding.setHandler(new Handler());
-        user = new User("leavesC", "123456");
-        activityMain6Binding.setUserInfo(user);
-        activityMain6Binding.viewStub.setOnInflateListener(new ViewStub.OnInflateListener() {
-            @Override
-            public void onInflate(ViewStub stub, View inflated) {
-                //如果在 xml 中没有使用 bind:userInfo="@{userInf}" 对 viewStub 进行数据绑定
-                //那么可以在此处进行手动绑定
-                ViewStubBinding viewStubBinding = DataBindingUtil.bind(inflated);
-                viewStubBinding.setUserInfo(user);
-                Log.e(TAG, "onInflate");
-            }
-        });
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main6);
+        user = new User("leavesC", "12345");
+        binding.setUserInfo(user);
+        binding.setUserPresenter(new UserPresenter());
     }
 
-    public class Handler {
+    public class UserPresenter {
 
-        public void onClick(View v) {
-            if (!activityMain6Binding.viewStub.isInflated()) {
-                activityMain6Binding.viewStub.getViewStub().inflate();
-            }
+        public void onUserNameClick(User user) {
+            Toast.makeText(Main6Activity.this, "用户名：" + user.getName(), Toast.LENGTH_SHORT).show();
+        }
+
+        public void afterTextChanged(Editable s) {
+            user.setName(s.toString());
+            binding.setUserInfo(user);
+        }
+
+        public void afterUserPasswordChanged(Editable s) {
+            user.setPassword(s.toString());
+            binding.setUserInfo(user);
         }
 
     }

@@ -3,11 +3,6 @@ package leavesc.hello.databindingsamples.model;
 import android.databinding.ObservableField;
 import android.databinding.ObservableFloat;
 
-/**
- * 作者：叶应是叶
- * 时间：2018/5/16 22:04
- * 描述：
- */
 public class ObservableGoods {
 
     private ObservableField<String> name;

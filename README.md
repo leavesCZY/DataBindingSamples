@@ -427,7 +427,7 @@ dataBinding 也提供了包装类用于替代原生的 `List` 和 `Map`，分别
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="leavesc.hello.databindingsamples.Main12Activity">
+        tools:context="leavesc.hello.databindingsamples.Main5Activity">
 
         <TextView
             ···
@@ -567,7 +567,7 @@ public class UserPresenter {
 
     <data>
         <import type="leavesc.hello.databindingsamples.model.User" />
-        <import type="leavesc.hello.databindingsamples.MainActivity.UserPresenter" />
+        <import type="leavesc.hello.databindingsamples.StartActivity.UserPresenter" />
         <variable
             name="userInfo"
             type="User" />
@@ -581,7 +581,7 @@ public class UserPresenter {
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:orientation="vertical"
-        tools:context="leavesc.hello.databindingsamples.MainActivity">
+        tools:context="leavesc.hello.databindingsamples.StartActivity">
 
         <TextView
             ···

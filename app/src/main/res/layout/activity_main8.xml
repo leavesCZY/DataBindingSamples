@@ -1,70 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.model.Image" />
+        <import type="java.util.List" />
 
-        <import type="leavesc.hello.databindingsamples.Main8Activity.Handler" />
+        <import type="java.util.Map" />
+
+        <import type="java.util.Set" />
+
+        <import type="android.util.SparseArray" />
 
         <variable
-            name="image"
-            type="leavesc.hello.databindingsamples.model.Image" />
+            name="array"
+            type="String[]" />
 
         <variable
-            name="handler"
-            type="Handler" />
+            name="list"
+            type="List&lt;String&gt;" />
+
+        <variable
+            name="map"
+            type="Map&lt;String, String&gt;" />
+
+        <variable
+            name="set"
+            type="Set&lt;String&gt;" />
+
+        <variable
+            name="sparse"
+            type="SparseArray&lt;String&gt;" />
+
+        <variable
+            name="index"
+            type="int" />
+
+        <variable
+            name="key"
+            type="String" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
-            bind:url="@{image.url}" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{()->handler.onClick(image)}"
-            android:text='@{"改变图片Url"}'
-            android:textAllCaps="false"
-            bind:layout_constraintTop_toBottomOf="@id/image" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text='@{"xxx"}'
-            android:textAllCaps="false"
-            bind:layout_constraintTop_toBottomOf="@id/button" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background='@{"红色"}'
-            android:padding="20dp"
-            android:text="红色背景蓝色字"
-            android:textColor='@{"蓝色"}'
-            bind:layout_constraintTop_toBottomOf="@id/textView" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background='@{"蓝色"}'
-            android:padding="20dp"
-            android:text="蓝色背景红色字"
-            android:textColor='@{"红色",default=@color/colorAccent}'
-            bind:layout_constraintTop_toBottomOf="@id/textView1" />
+            android:text="@{array[1]}" />
 
-    </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{sparse[index]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{list[index]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{map[key]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@{map["leavesC"]}' />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@{set.contains("xxx")?"xxx":key}' />
+    </LinearLayout>
 </layout>

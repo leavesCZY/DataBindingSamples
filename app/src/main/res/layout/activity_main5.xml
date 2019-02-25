@@ -3,50 +3,51 @@
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.model.User" />
+        <import type="android.databinding.ObservableList" />
 
-        <import type="leavesc.hello.databindingsamples.Main5Activity.UserPresenter" />
-
-        <import type="leavesc.hello.databindingsamples.StringUtils" />
+        <import type="android.databinding.ObservableMap" />
 
         <variable
-            name="userInfo"
-            type="User" />
+            name="list"
+            type="ObservableList&lt;String&gt;" />
 
         <variable
-            name="userPresenter"
-            type="UserPresenter" />
+            name="map"
+            type="ObservableMap&lt;String,String&gt;" />
+
+        <variable
+            name="index"
+            type="int" />
+
+        <variable
+            name="key"
+            type="String" />
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{()->userPresenter.onUserNameClick(userInfo)}"
-            android:text="@{StringUtils.toUpperCase(userInfo.name)}" />
+            android:padding="20dp"
+            android:text="@{list[index],default=xx}" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{userInfo.password}" />
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:text="@{map[key],default=yy}" />
 
-        <EditText
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:afterTextChanged="@{userPresenter.afterTextChanged}"
-            android:hint="用户名" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:afterTextChanged="@{userPresenter.afterUserPasswordChanged}"
-            android:hint="密码" />
+            android:onClick="onClick"
+            android:text="改变数据" />
 
     </LinearLayout>
-
 </layout>

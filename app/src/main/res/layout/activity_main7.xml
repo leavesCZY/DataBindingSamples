@@ -1,44 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
-        <import type="java.util.List" />
+        <import type="leavesc.hello.databindingsamples.Main7Activity.Handler" />
 
-        <import type="java.util.Map" />
-
-        <import type="java.util.Set" />
-
-        <import type="android.util.SparseArray" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
 
         <variable
-            name="array"
-            type="String[]" />
+            name="handler"
+            type="Handler" />
 
         <variable
-            name="list"
-            type="List&lt;String&gt;" />
-
-        <variable
-            name="map"
-            type="Map&lt;String, String&gt;" />
-
-        <variable
-            name="set"
-            type="Set&lt;String&gt;" />
-
-        <variable
-            name="sparse"
-            type="SparseArray&lt;String&gt;" />
-
-        <variable
-            name="index"
-            type="int" />
-
-        <variable
-            name="key"
-            type="String" />
+            name="userInfo"
+            type="User" />
     </data>
 
     <LinearLayout
@@ -46,34 +22,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <Button
+            android:id="@+id/btn_show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{array[1]}" />
+            android:onClick="@{handler::onClick}"
+            android:text="显示" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{sparse[index]}" />
+        <include
+            layout="@layout/view_include"
+            bind:userInfo="@{userInfo}" />
 
-        <TextView
+        <ViewStub
+            android:id="@+id/view_stub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{list[index]}" />
+            android:layout="@layout/view_stub"
+            bind:userInfo="@{userInfo}" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{map[key]}" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text='@{map["leavesC"]}' />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text='@{set.contains("xxx")?"xxx":key}' />
     </LinearLayout>
 </layout>

@@ -12,13 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="startActivity2"
-            android:text="单向数据绑定" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startActivity10"
-            android:text="双向数据绑定" />
+            android:text="单向/双向 数据绑定" />
 
         <Button
             android:layout_width="match_parent"
@@ -37,41 +31,41 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startActivity12"
+            android:onClick="startActivity5"
             android:text="ObservableCollection"
             android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startActivity5"
+            android:onClick="startActivity6"
             android:text="事件绑定" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startActivity6"
+            android:onClick="startActivity7"
             android:text="viewStub 和 include"
             android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startActivity7"
-            android:text="其他数据类型" />
+            android:onClick="startActivity8"
+            android:text="集合框架" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startActivity8"
+            android:onClick="startActivity9"
             android:text="BindingAdapter 和 BindingConversion"
             android:textAllCaps="false" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startActivity9"
-            android:text="引用资源" />
+            android:onClick="startActivity10"
+            android:text="资源引用" />
 
         <Button
             android:layout_width="match_parent"

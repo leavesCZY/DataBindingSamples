@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.Main6Activity.Handler" />
-
         <import type="leavesc.hello.databindingsamples.model.User" />
 
-        <variable
-            name="handler"
-            type="Handler" />
+        <import type="leavesc.hello.databindingsamples.Main6Activity.UserPresenter" />
+
+        <import type="leavesc.hello.databindingsamples.StringUtils" />
 
         <variable
             name="userInfo"
             type="User" />
+
+        <variable
+            name="userPresenter"
+            type="UserPresenter" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="20dp"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_show"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{handler::onClick}"
-            android:text="显示" />
+            android:onClick="@{()->userPresenter.onUserNameClick(userInfo)}"
+            android:text="@{StringUtils.toUpperCase(userInfo.name)}" />
 
-        <include
-            layout="@layout/view_include"
-            bind:userInfo="@{userInfo}" />
-
-        <ViewStub
-            android:id="@+id/view_stub"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout="@layout/view_stub"
-            bind:userInfo="@{userInfo}" />
+            android:text="@{userInfo.password}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{userPresenter.afterTextChanged}"
+            android:hint="用户名" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:afterTextChanged="@{userPresenter.afterUserPasswordChanged}"
+            android:hint="密码" />
 
     </LinearLayout>
+
 </layout>

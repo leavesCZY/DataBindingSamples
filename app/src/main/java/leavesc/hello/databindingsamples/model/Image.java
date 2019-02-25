@@ -2,11 +2,6 @@ package leavesc.hello.databindingsamples.model;
 
 import android.databinding.ObservableField;
 
-/**
- * 作者：叶应是叶
- * 时间：2018/5/20 13:40
- * 描述：
- */
 public class Image {
 
     private ObservableField<String> url;
@@ -22,4 +17,5 @@ public class Image {
     public void setUrl(ObservableField<String> url) {
         this.url = url;
     }
+
 }

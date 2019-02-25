@@ -6,21 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 
 import leavesc.hello.databindingsamples.databinding.ActivityMain10Binding;
 
-import leavesc.hello.databindingsamples.model.ObservableGoods;
-
-/**
- * 作者：叶应是叶
- * 时间：2018/5/20 19:51
- * 描述：
- */
 public class Main10Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMain10Binding activityMain10Binding = DataBindingUtil.setContentView(this, R.layout.activity_main10);
-        ObservableGoods goods = new ObservableGoods("code", "hi", 23);
-        activityMain10Binding.setGoods(goods);
+        ActivityMain10Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main10);
     }
 
 }

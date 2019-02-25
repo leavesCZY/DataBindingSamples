@@ -1,50 +1,40 @@
 package leavesc.hello.databindingsamples;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableArrayList;
+import android.databinding.ObservableArrayMap;
+import android.databinding.ObservableList;
+import android.databinding.ObservableMap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.widget.Toast;
+import android.view.View;
+
+import java.util.Random;
 
 import leavesc.hello.databindingsamples.databinding.ActivityMain5Binding;
-import leavesc.hello.databindingsamples.model.User;
 
-/**
- * 作者：叶应是叶
- * 时间：2018/5/16 22:32
- * 描述：
- */
 public class Main5Activity extends AppCompatActivity {
 
-    private ActivityMain5Binding activityMain5Binding;
-
-    private User user;
+    private ObservableMap<String, String> map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityMain5Binding = DataBindingUtil.setContentView(this, R.layout.activity_main5);
-        user = new User("leavesC", "12345");
-        activityMain5Binding.setUserInfo(user);
-        activityMain5Binding.setUserPresenter(new UserPresenter());
+        ActivityMain5Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main5);
+        map = new ObservableArrayMap<>();
+        map.put("name", "leavesC");
+        map.put("age", "24");
+        binding.setMap(map);
+        ObservableList<String> list = new ObservableArrayList<>();
+        list.add("Ye");
+        list.add("leavesC");
+        binding.setList(list);
+        binding.setIndex(0);
+        binding.setKey("name");
     }
 
-    public class UserPresenter {
-
-        public void onUserNameClick(User user) {
-            Toast.makeText(Main5Activity.this, "用户名：" + user.getName(), Toast.LENGTH_SHORT).show();
-        }
-
-        public void afterTextChanged(Editable s) {
-            user.setName(s.toString());
-            activityMain5Binding.setUserInfo(user);
-        }
-
-        public void afterUserPasswordChanged(Editable s) {
-            user.setPassword(s.toString());
-            activityMain5Binding.setUserInfo(user);
-        }
-
+    public void onClick(View view) {
+        map.put("name", "leavesC,hi" + new Random().nextInt(100));
     }
 
 }

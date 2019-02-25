@@ -1,10 +1,5 @@
 package leavesc.hello.databindingsamples.model;
 
-/**
- * 作者：叶应是叶
- * 时间：2018/5/16 20:20
- * 描述：
- */
 public class User {
 
     private String name;

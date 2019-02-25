@@ -5,9 +5,15 @@
 
         <import type="leavesc.hello.databindingsamples.model.User" />
 
+        <import type="leavesc.hello.databindingsamples.model.ObservableGoods" />
+
         <variable
             name="userInfo"
             type="User" />
+
+        <variable
+            name="goods"
+            type="ObservableGoods" />
     </data>
 
     <LinearLayout
@@ -17,8 +23,8 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="单向数据绑定"
-            style="@style/titleTextStyle" />
+            style="@style/titleTextStyle"
+            android:text="单向数据绑定" />
 
         <TextView
             android:id="@+id/tv_userName"
@@ -30,6 +36,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{userInfo.password}" />
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:layout_marginTop="10dp"
+            android:text="双向数据绑定" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{goods.name}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={goods.name}" />
 
     </LinearLayout>
 
