@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 import leavesc.hello.databindingsamples.databinding.ActivityMain8Binding;
 
 public class Main8Activity extends AppCompatActivity {

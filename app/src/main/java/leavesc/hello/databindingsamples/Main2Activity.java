@@ -13,7 +13,6 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         ActivityMain2Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main2);
 
         User user = new User("leavesC", "123456");

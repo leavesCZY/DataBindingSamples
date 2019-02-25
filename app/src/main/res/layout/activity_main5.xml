@@ -34,14 +34,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="@{list[index],default=xx}" />
+            android:text="@{list[index]}" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="20dp"
-            android:text="@{map[key],default=yy}" />
+            android:text="@{map[key]}" />
 
         <Button
             android:layout_width="match_parent"

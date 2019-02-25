@@ -11,23 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".StartActivity">
+        <activity android:name="leavesc.hello.databindingsamples.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".Main3Activity" />
-        <activity android:name=".Main4Activity" />
-        <activity android:name=".Main5Activity" />
-        <activity android:name=".Main6Activity" />
-        <activity android:name=".Main7Activity" />
-        <activity android:name=".Main8Activity" />
-        <activity android:name=".Main9Activity" />
-        <activity android:name=".Main10Activity" />
-        <activity android:name=".Main11Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main2Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main3Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main4Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main5Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main6Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main7Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main8Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main9Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main10Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main11Activity" />
+        <activity android:name="leavesc.hello.databindingsamples.Main12Activity" />
     </application>
 
 </manifest>

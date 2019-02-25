@@ -67,4 +67,9 @@ public class StartActivity extends AppCompatActivity {
         startActivity(Main11Activity.class);
     }
 
+    //RecyclerView
+    public void startActivity12(View view) {
+        startActivity(Main12Activity.class);
+    }
+
 }
