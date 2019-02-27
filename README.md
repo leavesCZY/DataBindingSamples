@@ -1,6 +1,8 @@
-### 这是我对 DataBinding 框架的学习笔记，希望对你有所帮助，欢迎 Star
+> ### 本文是我在学习  Google 的 DataBinding 框架的过程中写的笔记，会不定时更新，最新一次的更新时间是在 2019-02-27，希望对你有所帮助，也欢迎  Star
+> ### 项目 GitHub 地址：[DataBindingSamples](https://github.com/leavesC/DataBindingSamples)
+------
 
-DataBinding 是谷歌官方发布的一个框架，顾名思义即为数据绑定，是 MVVM 模式在 Android 上的一种实现，用于降低布局和逻辑的耦合性，使代码逻辑更加清晰。MVVM 相对于 MVP，其实就是将 Presenter 层替换成了 ViewModel 层。DataBinding 能够省去我们一直以来的 findViewById() 步骤，大量减少 Activity 内的代码，数据能够单向或双向绑定到 layout 文件中，有助于防止内存泄漏，而且能自动进行空检测以避免空指针异常
+DataBinding 是谷歌官方发布的一个框架，顾名思义即为数据绑定，是 MVVM 模式在 Android 上的一种实现，用于降低布局和逻辑的耦合性，使代码逻辑更加清晰。MVVM 相对于 MVP，其实就是将 Presenter 层替换成了 **ViewModel** 层。DataBinding 能够省去我们一直以来的 **findViewById()** 步骤，大量减少 **Activity** 内的代码，数据能够单向或双向绑定到 **layout** 文件中，有助于防止内存泄漏，而且能自动进行空检测以避免空指针异常
 
 启用 DataBinding 的方法是在对应 Model 的 **build.gradle** 文件里加入以下代码，同步后就能引入对 DataBinding 的支持
 
@@ -43,20 +45,26 @@ android {
 这里先来声明一个 Modle 
 
 ```java
-package com.leavesc.databinding_demo.model;
-
 /**
- * 作者：叶应是叶
- * 时间：2018/5/16 20:20
- * 描述：https://github.com/leavesC
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
+ * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
  */
 public class User {
 
     private String name;
 
     private String password;
-	
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
     ···
+
 }
 ```
 
@@ -66,7 +74,7 @@ public class User {
     <data>
         <variable
             name="userInfo"
-            type="com.leavesc.databinding_demo.model.User" />
+            type="leavesc.hello.databindingsamples.model.User" />
     </data>
 ```
 
@@ -74,7 +82,7 @@ public class User {
 
 ```java
     <data>
-        <import type="com.leavesc.databinding_demo.model.User"/>
+        <import type="leavesc.hello.databindingsamples.model.User"/>
         <variable
             name="userInfo"
             type="User"/>
@@ -85,10 +93,10 @@ public class User {
 
 ```xml
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
+        <import type="leavesc.hello.databindingsamples.model.User" />
         <import
             alias="TempUser"
-            type="com.leavesc.databinding_demo.model2.User" />
+            type="leavesc.hello.databindingsamples.model2.User" />
         <variable
             name="userInfo"
             type="User" />
@@ -103,11 +111,12 @@ public class User {
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
+
+        <import type="leavesc.hello.databindingsamples.model.User" />
+
         <variable
             name="userInfo"
             type="User" />
@@ -117,16 +126,21 @@ public class User {
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:orientation="vertical"
-        tools:context="com.leavesc.databinding_demo.Main2Activity">
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/titleTextStyle"
+            android:text="单向数据绑定" />
 
         <TextView
             android:id="@+id/tv_userName"
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@{userInfo.name}" />
 
         <TextView
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@{userInfo.password}" />
 
     </LinearLayout>
@@ -138,14 +152,12 @@ public class User {
 之后可以在 Activity 中通过 `DataBindingUtil` 设置布局文件，省略原先 Activity 的 `setContentView()` 方法，并为变量 **userInfo** 赋值
 
 ```java
-    private User user;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMain2Binding activityMain2Binding = DataBindingUtil.setContentView(this, R.layout.activity_main2);
-        user = new User("leavesC", "123456");
-        activityMain2Binding.setUserInfo(user);
+         ActivityMain2Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main2);
+        User user = new User("leavesC", "123456");
+        binding.setUserInfo(user);
     }
 ```
 
@@ -180,9 +192,9 @@ Databinding 同样是支持在 **Fragment** 和 **RecyclerView** 中使用 。�
 ```java
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        FragmentBlankBinding fragmentBlankBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_blank, container, false);
-        fragmentBlankBinding.setHint("Hello");
-        return fragmentBlankBinding.getRoot();
+        FragmentBlankBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_blank, container, false);
+        binding.setHint("Hello");
+        return binding.getRoot();
     }
 ```
 
@@ -192,7 +204,7 @@ Databinding 同样是支持在 **Fragment** 和 **RecyclerView** 中使用 。�
 
 实现数据变化自动驱动 UI 刷新的方式有三种：`BaseObservable`、`ObservableField`、`ObservableCollection` 
 
-#### BaseObservable
+#### 2.1、BaseObservable
 
 一个纯净的 ViewModel 类被更新后，并不会让 UI 自动更新。而数据绑定后，我们自然会希望数据变更后 UI 会即时刷新，Observable 就是为此而生的概念
 
@@ -200,9 +212,11 @@ Databinding 同样是支持在 **Fragment** 和 **RecyclerView** 中使用 。�
 
 ```java
 /**
- * 作者：叶应是叶
- * 时间：2018/5/16 20:54
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
  * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
  */
 public class Goods extends BaseObservable {
 
@@ -224,7 +238,7 @@ public class Goods extends BaseObservable {
     public void setName(String name) {
         this.name = name;
         //只更新本字段
-        notifyPropertyChanged(com.leavesc.databinding_demo.BR.name);
+        notifyPropertyChanged(leavesc.hello.databindingsamples.BR.name);
     }
 
     @Bindable
@@ -246,6 +260,15 @@ public class Goods extends BaseObservable {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "name='" + name + '\'' +
+                ", details='" + details + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
 }
 ```
 
@@ -255,47 +278,55 @@ public class Goods extends BaseObservable {
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.Goods" />
-        <import type="com.leavesc.databinding_demo.Main3Activity.GoodsHandler" />
+
+        <import type="leavesc.hello.databindingsamples.model.Goods" />
+
+        <import type="leavesc.hello.databindingsamples.Main3Activity.GoodsHandler" />
+
         <variable
             name="goods"
             type="Goods" />
+
         <variable
             name="goodsHandler"
             type="GoodsHandler" />
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp"
-        tools:context=".Main3Activity">
+        android:padding="20dp">
 
         <TextView
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@{goods.name}" />
 
         <TextView
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@{goods.details}" />
 
         <TextView
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@{String.valueOf(goods.price)}" />
 
         <Button
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{()->goodsHandler.changeGoodsName()}"
             android:text="改变属性 name 和 price"
             android:textAllCaps="false" />
 
         <Button
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{()->goodsHandler.changeGoodsDetails()}"
             android:text="改变属性 details 和 price"
             android:textAllCaps="false" />
@@ -306,24 +337,25 @@ public class Goods extends BaseObservable {
 
 ```java
 /**
- * 作者：叶应是叶
- * 时间：2018/5/16 21:07
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
  * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
  */
 public class Main3Activity extends AppCompatActivity {
 
-    private Goods goods;
+    private static final String TAG = "Main3Activity";
 
-    private ActivityMain3Binding activityMain3Binding;
+    private Goods goods;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
-        activityMain3Binding = DataBindingUtil.setContentView(this, R.layout.activity_main3);
+        ActivityMain3Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main3);
         goods = new Goods("code", "hi", 24);
-        activityMain3Binding.setGoods(goods);
-        activityMain3Binding.setGoodsHandler(new GoodsHandler());
+        binding.setGoods(goods);
+        binding.setGoodsHandler(new GoodsHandler());
     }
 
     public class GoodsHandler {
@@ -341,6 +373,7 @@ public class Main3Activity extends AppCompatActivity {
     }
 
 }
+
 ```
 
 ![](https://upload-images.jianshu.io/upload_images/2552605-1c0aeb00cfa64c39.gif?imageMogr2/auto-orient/strip)
@@ -367,83 +400,94 @@ public class Main3Activity extends AppCompatActivity {
         });
 ```
 
-#### ObservableField
+#### 2.2、ObservableField
 
 继承于 Observable 类相对来说限制有点高，且也需要进行 notify 操作，因此为了简单起见可以选择使用 **ObservableField**。ObservableField 可以理解为官方对 BaseObservable 中字段的注解和刷新等操作的封装，官方原生提供了对基本数据类型的封装，例如 **ObservableBoolean、ObservableByte、ObservableChar、ObservableShort、ObservableInt、ObservableLong、ObservableFloat、ObservableDouble** 以及 **ObservableParcelable** ，也可通过 **ObservableField** 泛型来申明其他类型
 
-~~~java
+```java
 /**
- * 作者：叶应是叶
- * 时间：2018/5/13 21:33
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
  * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
  */
 public class ObservableGoods {
 
     private ObservableField<String> name;
 
-    private ObservableFloat price;
-
     private ObservableField<String> details;
 
-    public ObservableGoods(String name, float price, String details) {
+    private ObservableFloat price;
+
+    public ObservableGoods(String name, String details, float price) {
         this.name = new ObservableField<>(name);
-        this.price = new ObservableFloat(price);
         this.details = new ObservableField<>(details);
+        this.price = new ObservableFloat(price);
     }
 
-    ```
+    ···
+
 }
-~~~
+```
 
 对 ObservableGoods 属性值的改变都会立即触发 UI 刷新，概念上与 Observable 区别不大，具体效果可看下面提供的源代码，这里不再赘述
 
-#### ObservableCollection
+#### 2.3、ObservableCollection
 
-dataBinding 也提供了包装类用于替代原生的 `List` 和 `Map`，分别是 `ObservableList` 和 `ObservableMap`,当其包含的数据发生变化时，绑定的视图也会随之进行刷新
+DataBinding 也提供了包装类用于替代原生的 `List` 和 `Map`，分别是 `ObservableList` 和 `ObservableMap`,当其包含的数据发生变化时，绑定的视图也会随之进行刷新
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="android.databinding.ObservableList"/>
-        <import type="android.databinding.ObservableMap"/>
+
+        <import type="android.databinding.ObservableList" />
+
+        <import type="android.databinding.ObservableMap" />
+
         <variable
             name="list"
-            type="ObservableList&lt;String&gt;"/>
+            type="ObservableList&lt;String&gt;" />
+
         <variable
             name="map"
-            type="ObservableMap&lt;String,String&gt;"/>
+            type="ObservableMap&lt;String,String&gt;" />
+
         <variable
             name="index"
-            type="int"/>
+            type="int" />
+
         <variable
             name="key"
-            type="String"/>
+            type="String" />
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="com.leavesc.databinding_demo.Main12Activity">
+        android:orientation="vertical">
 
         <TextView
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="@{list[index],default=xx}"/>
+            android:text="@{list[index]}" />
 
         <TextView
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="20dp"
-            android:text="@{map[key],default=yy}"/>
+            android:text="@{map[key]}" />
 
         <Button
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="onClick"
-            android:text="改变数据"/>
+            android:text="改变数据" />
 
     </LinearLayout>
 </layout>
@@ -455,17 +499,17 @@ dataBinding 也提供了包装类用于替代原生的 `List` 和 `Map`，分别
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMain12Binding activityMain12Binding = DataBindingUtil.setContentView(this, R.layout.activity_main12);
+        ActivityMain5Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main5);
         map = new ObservableArrayMap<>();
         map.put("name", "leavesC");
         map.put("age", "24");
-        activityMain12Binding.setMap(map);
+        binding.setMap(map);
         ObservableList<String> list = new ObservableArrayList<>();
         list.add("Ye");
         list.add("leavesC");
-        activityMain12Binding.setList(list);
-        activityMain12Binding.setIndex(0);
-        activityMain12Binding.setKey("name");
+        binding.setList(list);
+        binding.setIndex(0);
+        binding.setKey("name");
     }
 
     public void onClick(View view) {
@@ -483,11 +527,10 @@ dataBinding 也提供了包装类用于替代原生的 `List` 和 `Map`，分别
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    
     <data>
-        <import type="com.leavesc.databinding_demo.model.ObservableGoods"/>
+        <import type="leavesc.hello.databindingsamples.model.ObservableGoods" />
         <variable
             name="goods"
             type="ObservableGoods" />
@@ -496,33 +539,37 @@ dataBinding 也提供了包装类用于替代原生的 `List` 和 `Map`，分别
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Main10Activity">
+        android:layout_margin="20dp"
+        android:orientation="vertical">
 
         <TextView
-            ···
+            style="@style/titleTextStyle"
+            android:layout_marginTop="10dp"
+            android:text="双向数据绑定" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@{goods.name}" />
 
         <EditText
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@={goods.name}" />
 
     </LinearLayout>
+
 </layout>
 ```
 
 ```java
-public class Main10Activity extends AppCompatActivity {
-
-    @Override
+ 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMain10Binding activityMain10Binding = DataBindingUtil.setContentView(this, R.layout.activity_main10);
+        ActivityMain2Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main2);
         ObservableGoods goods = new ObservableGoods("code", "hi", 23);
-        activityMain10Binding.setGoods(goods);
+        binding.setGoods(goods);
     }
-
-}
 ```
 
 ![](https://upload-images.jianshu.io/upload_images/2552605-d84b79f7500260c0.gif?imageMogr2/auto-orient/strip)
@@ -541,36 +588,41 @@ public class Main10Activity extends AppCompatActivity {
 在 Activity 内部新建一个 **UserPresenter** 类来声明 **onClick()** 和 **afterTextChanged()** 事件相应的回调方法
 
 ```java
-public class UserPresenter {
+	public class UserPresenter {
 
         public void onUserNameClick(User user) {
-            Toast.makeText(Main5Activity.this, "用户名：" + user.getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(Main6Activity.this, "用户名：" + user.getName(), Toast.LENGTH_SHORT).show();
         }
 
         public void afterTextChanged(Editable s) {
             user.setName(s.toString());
-            activityMain5Binding.setUserInfo(user);
+            binding.setUserInfo(user);
         }
 
         public void afterUserPasswordChanged(Editable s) {
             user.setPassword(s.toString());
-            activityMain5Binding.setUserInfo(user);
+            binding.setUserInfo(user);
         }
 
-}
+    }
 ```
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
-        <import type="com.leavesc.databinding_demo.MainActivity.UserPresenter" />
+
+        <import type="leavesc.hello.databindingsamples.model.User" />
+
+        <import type="leavesc.hello.databindingsamples.Main6Activity.UserPresenter" />
+
+        <import type="leavesc.hello.databindingsamples.StringUtils" />
+
         <variable
             name="userInfo"
             type="User" />
+
         <variable
             name="userPresenter"
             type="UserPresenter" />
@@ -580,25 +632,28 @@ public class UserPresenter {
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:orientation="vertical"
-        tools:context="com.leavesc.databinding_demo.MainActivity">
+        android:orientation="vertical">
 
         <TextView
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{()->userPresenter.onUserNameClick(userInfo)}"
-            android:text="@{userInfo.name}" />
+            android:text="@{StringUtils.toUpperCase(userInfo.name)}" />
 
         <TextView
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@{userInfo.password}" />
 
         <EditText
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:afterTextChanged="@{userPresenter.afterTextChanged}"
             android:hint="用户名" />
 
         <EditText
-            ···
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:afterTextChanged="@{userPresenter.afterUserPasswordChanged}"
             android:hint="密码" />
 
@@ -627,22 +682,22 @@ public class StringUtils {
 在 data 标签中导入该工具类
 
 ```xml
- <import type="com.leavesc.databinding_demo.StringUtils" />
+		<import type="leavesc.hello.databindingsamples.StringUtils" />
 ```
 
 然后就可以像对待一般的函数一样来调用了
 
 ```xml
-  <TextView
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:onClick="@{()->userPresenter.onUserNameClick(userInfo)}"
-     android:text="@{StringUtils.toUpperCase(userInfo.name)}" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->userPresenter.onUserNameClick(userInfo)}"
+            android:text="@{StringUtils.toUpperCase(userInfo.name)}" />
 ```
 
 ### 六、运算符
 
-#### 基础运算符
+#### 6.1、基础运算符
 
 DataBinding 支持在布局文件中使用以下运算符、表达式和关键字
 
@@ -671,7 +726,7 @@ DataBinding 支持在布局文件中使用以下运算符、表达式和关键�
 
 此外，DataBinding 还支持以下几种形式的调用
 
-#### Null Coalescing 
+#### 6.2、Null Coalescing 
 
 空合并运算符 **??** 会取第一个不为 null 的值作为返回值
 
@@ -688,7 +743,7 @@ DataBinding 支持在布局文件中使用以下运算符、表达式和关键�
 	android:text="@{user.name != null ? user.name : user.password}"
 ```
 
-#### 属性控制
+#### 6.3、属性控制
 
 可以通过变量值来控制 View 的属性
 
@@ -700,14 +755,14 @@ DataBinding 支持在布局文件中使用以下运算符、表达式和关键�
      android:visibility="@{user.male  ? View.VISIBLE : View.GONE}" />
 ```
 
-#### 避免空指针异常
+#### 6.4、避免空指针异常
 
 DataBinding 也会自动帮助我们避免空指针异常
 例如，如果 **"@{userInfo.password}"** 中 **userInfo** 为 **null** 的话，**userInfo.password** 会被赋值为默认值 **null**，而不会抛出空指针异常
 
 ### 七、include 和 viewStub
 
-#### include
+#### 7.1、include
 
 对于 include 的布局文件，一样是支持通过 dataBinding 来进行数据绑定，此时一样需要在待 include 的布局中依然使用 layout 标签，声明需要使用到的变量
 
@@ -718,7 +773,9 @@ DataBinding 也会自动帮助我们避免空指针异常
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
+
+        <import type="leavesc.hello.databindingsamples.model.User" />
+
         <variable
             name="userInfo"
             type="User" />
@@ -749,7 +806,7 @@ DataBinding 也会自动帮助我们避免空指针异常
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.User" />
+     	<import type="leavesc.hello.databindingsamples.model.User" />
         <variable
             name="userInfo"
             type="User" />
@@ -758,8 +815,7 @@ DataBinding 也会自动帮助我们避免空指针异常
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Main6Activity">
+        android:orientation="vertical">
         
         <include
             layout="@layout/view_include"
@@ -769,7 +825,7 @@ DataBinding 也会自动帮助我们避免空指针异常
 </layout>
 ```
 
-#### viewStub
+#### 7.2、viewStub
 
 dataBinding 一样支持 ViewStub 布局
 
@@ -786,8 +842,8 @@ dataBinding 一样支持 ViewStub 布局
 获取到 ViewStub 对象，由此就可以来控制 ViewStub 的可见性
 
 ```java
-	ActivityMain6Binding activityMain6Binding = DataBindingUtil.setContentView(this, R.layout.activity_main6);
-	View view = activityMain6Binding.viewStub.getViewStub().inflate();
+	ActivityMain7Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main7);
+	View view = binding.viewStub.getViewStub().inflate();
 ```
 
 如果需要为 ViewStub 绑定变量值，则 ViewStub 文件一样要使用 layout 标签进行布局，主布局文件使用自定义的 bind 命名空间将变量传递给 ViewStub
@@ -804,7 +860,7 @@ dataBinding 一样支持 ViewStub 布局
 如果在 xml 中没有使用 `bind:userInfo="@{userInf}" `对 ViewStub 进行数据绑定，则可以等到当 ViewStub **Inflate** 时再绑定变量，此时需要为 ViewStub 设置 `setOnInflateListener`回调函数，在回调函数中进行数据绑定
 
 ```java
-        activityMain6Binding.viewStub.setOnInflateListener(new ViewStub.OnInflateListener() {
+binding.viewStub.setOnInflateListener(new ViewStub.OnInflateListener() {
             @Override
             public void onInflate(ViewStub stub, View inflated) {
                 //如果在 xml 中没有使用 bind:userInfo="@{userInf}" 对 viewStub 进行数据绑定
@@ -840,7 +896,7 @@ dataBinding 提供了 **BindingAdapter** 这个注解用于支持自定义属性
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.leavesc.databinding_demo.model.Image" />
+        <import type="leavesc.hello.databindingsamples.model.Image" />
         <variable
             name="image"
             type="Image" />
@@ -848,8 +904,7 @@ dataBinding 提供了 **BindingAdapter** 这个注解用于支持自定义属性
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Main8Activity">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/image"
@@ -1057,4 +1112,285 @@ dataBinding 支持对尺寸和字符串这类资源的访问
          android:textAllCaps="false" />
 ```
 
+### 十二、与 RecyclerView 搭配使用
 
+dataBinding 与 RecyclerView  搭配使用的话可以让代码更加简洁明了
+
+先声明需要的 item 布局文件
+
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="leavesc.hello.databindingsamples.model.User" />
+
+        <variable
+            name="user"
+            type="User" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@{user.name}" />
+
+        <TextView
+            android:id="@+id/tvPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@{user.password}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#c6cdd4" />
+
+    </LinearLayout>
+
+</layout>
+```
+
+对应的 RecyclerView.Adapter 
+
+```java
+/**
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
+ * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
+ */
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserAdapterHolder> {
+
+    private List<User> userList;
+
+    public UserAdapter(List<User> userList) {
+        this.userList = userList;
+    }
+
+    @NonNull
+    @Override
+    public UserAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ItemUserBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_user, parent, false);
+        return new UserAdapterHolder(binding);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull UserAdapterHolder holder, int position) {
+        holder.getBinding().setUser(userList.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        if (userList == null) {
+            return 0;
+        }
+        return userList.size();
+    }
+
+    class UserAdapterHolder extends RecyclerView.ViewHolder {
+
+        private ItemUserBinding binding;
+
+        UserAdapterHolder(ItemUserBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+
+        public ItemUserBinding getBinding() {
+            return binding;
+        }
+    }
+
+}
+
+```
+
+### 十三、RecyclerView Adapter 高效率刷新
+
+前文讲到了 **ObservableList** ，此处就可以通过 **ObservableList** 的实现类 **ObservableArrayList** 来实现 **RecyclerView Adapter 的高效刷新**，而不是每次都是直接 **notifyDataSetChanged**
+
+可以先看下 ObservableArrayList 的源码，可以发现在每次**增删改数据**时，都会触发到 **ListChangeRegistry** 内的 **OnListChangedCallback** 回调，且 **OnListChangedCallback** 是把每次改动到的数据位置都给透传到外部，我们可以通过这些信息来只刷新 Adapter 的特定位置，从而实现高效刷新，并且获得一些动画效果
+
+```java
+public class ObservableArrayList<T> extends ArrayList<T> implements ObservableList<T> {
+   
+    private transient ListChangeRegistry mListeners = new ListChangeRegistry();
+
+   	···
+
+    @Override
+    public boolean add(T object) {
+        super.add(object);
+        notifyAdd(size() - 1, 1);
+        return true;
+    }
+    
+    @Override
+    public void clear() {
+        int oldSize = size();
+        super.clear();
+        if (oldSize != 0) {
+            notifyRemove(0, oldSize);
+        }
+    }
+
+    @Override
+    public T remove(int index) {
+        T val = super.remove(index);
+        notifyRemove(index, 1);
+        return val;
+    }
+
+    @Override
+    public T set(int index, T object) {
+        T val = super.set(index, object);
+        if (mListeners != null) {
+            mListeners.notifyChanged(this, index, 1);
+        }
+        return val;
+    }
+
+    private void notifyAdd(int start, int count) {
+        if (mListeners != null) {
+            mListeners.notifyInserted(this, start, count);
+        }
+    }
+
+    private void notifyRemove(int start, int count) {
+        if (mListeners != null) {
+            mListeners.notifyRemoved(this, start, count);
+        }
+    }
+    
+    ···
+    
+}
+
+```
+
+此处通过 **DynamicChangeCallback** 来实现对 **Adapter** 的刷新操作
+
+```java
+/**
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
+ * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
+ */
+public class DynamicChangeCallback<T> extends ObservableList.OnListChangedCallback<ObservableList<T>> {
+
+    private RecyclerView.Adapter adapter;
+
+    public DynamicChangeCallback(RecyclerView.Adapter adapter) {
+        this.adapter = adapter;
+    }
+
+    @Override
+    public void onChanged(ObservableList<T> sender) {
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemRangeChanged(ObservableList<T> sender, int positionStart, int itemCount) {
+        adapter.notifyItemRangeChanged(positionStart, itemCount);
+    }
+
+    @Override
+    public void onItemRangeInserted(ObservableList<T> sender, int positionStart, int itemCount) {
+        adapter.notifyItemRangeInserted(positionStart, itemCount);
+    }
+
+    @Override
+    public void onItemRangeMoved(ObservableList<T> sender, int fromPosition, int toPosition, int itemCount) {
+        adapter.notifyItemRangeRemoved(fromPosition, itemCount);
+        adapter.notifyItemRangeInserted(toPosition, itemCount);
+    }
+
+    @Override
+    public void onItemRangeRemoved(ObservableList<T> sender, int positionStart, int itemCount) {
+        adapter.notifyItemRangeRemoved(positionStart, itemCount);
+    }
+
+}
+```
+
+通过几个按钮来分别测试 Adapter 的数据刷新情况
+
+```java
+public class Main13Activity extends AppCompatActivity {
+
+    private ObservableArrayList<User> userObservableArrayList;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main13);
+        RecyclerView rvList = findViewById(R.id.rvList);
+        rvList.setLayoutManager(new LinearLayoutManager(this));
+        initData();
+        UserAdapter userAdapter = new UserAdapter(userObservableArrayList);
+        userAdapter.notifyDataSetChanged();
+        userObservableArrayList.addOnListChangedCallback(new DynamicChangeCallback(userAdapter));
+        rvList.setAdapter(userAdapter);
+    }
+
+    private void initData() {
+        userObservableArrayList = new ObservableArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            User user = new User("user_" + i, String.valueOf(new Random().nextInt() * 4));
+            userObservableArrayList.add(user);
+        }
+    }
+
+    public void addItem(View view) {
+        if (userObservableArrayList.size() >= 3) {
+            User user = new User("user_" + 100, String.valueOf(new Random().nextInt() * 4));
+            userObservableArrayList.add(1, user);
+        }
+    }
+
+    public void addItemList(View view) {
+        if (userObservableArrayList.size() >= 3) {
+            List<User> userList = new ArrayList<>();
+            for (int i = 0; i < 3; i++) {
+                User user = new User("user_" + 100, String.valueOf(new Random().nextInt() * 4));
+                userList.add(user);
+            }
+            userObservableArrayList.addAll(1, userList);
+        }
+    }
+
+    public void removeItem(View view) {
+        if (userObservableArrayList.size() >= 3) {
+            userObservableArrayList.remove(1);
+        }
+    }
+
+    public void updateItem(View view) {
+        if (userObservableArrayList.size() >= 3) {
+            User user = userObservableArrayList.get(1);
+            user.setName("user_" + new Random().nextInt());
+            userObservableArrayList.set(1, user);
+        }
+    }
+
+}
+```
+
+![](https://upload-images.jianshu.io/upload_images/2552605-1e9a42c277ac8307.gif?imageMogr2/auto-orient/strip)

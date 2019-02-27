@@ -3,6 +3,13 @@ package leavesc.hello.databindingsamples.model;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
+/**
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
+ * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
+ */
 public class Goods extends BaseObservable {
 
     //如果是 public 修饰符，则可以直接在成员变量上方加上 @Bindable 注解

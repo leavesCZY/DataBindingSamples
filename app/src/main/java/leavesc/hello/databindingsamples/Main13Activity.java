@@ -1,5 +1,6 @@
 package leavesc.hello.databindingsamples;
 
+import android.databinding.ObservableArrayList;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,8 +14,14 @@ import java.util.Random;
 import leavesc.hello.databindingsamples.adapter.UserAdapter;
 import leavesc.hello.databindingsamples.model.User;
 import leavesc.hello.databindingsamples.observable.DynamicChangeCallback;
-import leavesc.hello.databindingsamples.observable.ObservableArrayList;
 
+/**
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
+ * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
+ */
 public class Main13Activity extends AppCompatActivity {
 
     private ObservableArrayList<User> userObservableArrayList;
@@ -27,6 +34,7 @@ public class Main13Activity extends AppCompatActivity {
         rvList.setLayoutManager(new LinearLayoutManager(this));
         initData();
         UserAdapter userAdapter = new UserAdapter(userObservableArrayList);
+        userAdapter.notifyDataSetChanged();
         userObservableArrayList.addOnListChangedCallback(new DynamicChangeCallback(userAdapter));
         rvList.setAdapter(userAdapter);
     }
@@ -67,7 +75,7 @@ public class Main13Activity extends AppCompatActivity {
         if (userObservableArrayList.size() >= 3) {
             User user = userObservableArrayList.get(1);
             user.setName("user_" + new Random().nextInt());
-            userObservableArrayList.updateItem(user);
+            userObservableArrayList.set(1, user);
         }
     }
 

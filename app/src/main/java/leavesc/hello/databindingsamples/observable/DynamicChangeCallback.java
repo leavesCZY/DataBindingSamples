@@ -4,9 +4,11 @@ import android.databinding.ObservableList;
 import android.support.v7.widget.RecyclerView;
 
 /**
- * Created by：CZY
- * Time：2019/2/25 16:06
- * Desc：
+ * 作者：leavesC
+ * 时间：2019/2/27 21:36
+ * 描述：
+ * GitHub：https://github.com/leavesC
+ * Blog：https://www.jianshu.com/u/9df45b87cfdf
  */
 public class DynamicChangeCallback<T> extends ObservableList.OnListChangedCallback<ObservableList<T>> {
 
