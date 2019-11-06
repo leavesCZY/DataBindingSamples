@@ -3,9 +3,9 @@
 
     <data>
 
-        <import type="android.databinding.ObservableList" />
+        <import type="androidx.databinding.ObservableList" />
 
-        <import type="android.databinding.ObservableMap" />
+        <import type="androidx.databinding.ObservableMap" />
 
         <variable
             name="list"

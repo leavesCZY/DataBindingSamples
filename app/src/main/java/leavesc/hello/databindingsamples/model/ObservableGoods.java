@@ -1,7 +1,7 @@
 package leavesc.hello.databindingsamples.model;
 
-import android.databinding.ObservableField;
-import android.databinding.ObservableFloat;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableFloat;
 
 /**
  * 作者：leavesC

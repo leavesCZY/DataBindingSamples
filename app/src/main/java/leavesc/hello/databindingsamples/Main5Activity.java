@@ -1,12 +1,12 @@
 package leavesc.hello.databindingsamples;
 
-import android.databinding.DataBindingUtil;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableArrayMap;
-import android.databinding.ObservableList;
-import android.databinding.ObservableMap;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableArrayMap;
+import androidx.databinding.ObservableList;
+import androidx.databinding.ObservableMap;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import java.util.Random;

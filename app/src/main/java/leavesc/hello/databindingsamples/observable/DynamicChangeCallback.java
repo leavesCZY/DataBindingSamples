@@ -1,7 +1,7 @@
 package leavesc.hello.databindingsamples.observable;
 
-import android.databinding.ObservableList;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.ObservableList;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * 作者：leavesC

@@ -1,8 +1,8 @@
 package leavesc.hello.databindingsamples;
 
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import leavesc.hello.databindingsamples.databinding.ActivityMain10Binding;
 

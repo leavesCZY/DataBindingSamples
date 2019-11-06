@@ -1,7 +1,7 @@
 package leavesc.hello.databindingsamples.model;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 
 /**
  * 作者：leavesC

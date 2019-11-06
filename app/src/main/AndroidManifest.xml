@@ -29,7 +29,7 @@
         <activity android:name=".Main10Activity" />
         <activity android:name=".Main11Activity" />
         <activity android:name=".Main12Activity" />
-        <activity android:name=".Main13Activity"></activity>
+        <activity android:name=".Main13Activity" />
     </application>
 
 </manifest>
