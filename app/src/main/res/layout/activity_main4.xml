@@ -3,17 +3,17 @@
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.model.ObservableGoods" />
+        <import type="github.leavesc.databindingsamples.model.ObservableGoods" />
 
-        <import type="leavesc.hello.databindingsamples.Main4Activity.ObservableGoodsHandler" />
+        <import type="github.leavesc.databindingsamples.Main4Activity" />
 
         <variable
             name="observableGoods"
-            type="ObservableGoods" />
+            type="github.leavesc.databindingsamples.model.ObservableGoods" />
 
         <variable
             name="observableGoodsHandler"
-            type="ObservableGoodsHandler" />
+            type="Main4Activity.ObservableGoodsHandler" />
     </data>
 
     <LinearLayout

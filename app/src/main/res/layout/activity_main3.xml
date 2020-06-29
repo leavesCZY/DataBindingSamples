@@ -3,17 +3,17 @@
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.model.Goods" />
+        <import type="github.leavesc.databindingsamples.model.Goods" />
 
-        <import type="leavesc.hello.databindingsamples.Main3Activity.GoodsHandler" />
+        <import type="github.leavesc.databindingsamples.Main3Activity" />
 
         <variable
             name="goods"
-            type="Goods" />
+            type="github.leavesc.databindingsamples.model.Goods" />
 
         <variable
             name="goodsHandler"
-            type="GoodsHandler" />
+            type="Main3Activity.GoodsHandler" />
 
     </data>
 

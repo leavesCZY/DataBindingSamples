@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.model.User" />
+        <import type="github.leavesc.databindingsamples.model.User" />
 
         <variable
             name="userInfo"
-            type="User" />
+            type="github.leavesc.databindingsamples.model.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +21,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="20dp"
-            android:text="@{userInfo.name}" />
+            android:text="@{userInfo.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

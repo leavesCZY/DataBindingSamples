@@ -4,17 +4,17 @@
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.Main7Activity.Handler" />
+        <import type="github.leavesc.databindingsamples.Main7Activity" />
 
-        <import type="leavesc.hello.databindingsamples.model.User" />
+        <import type="github.leavesc.databindingsamples.model.User" />
 
         <variable
             name="handler"
-            type="Handler" />
+            type="Main7Activity.Handler" />
 
         <variable
             name="userInfo"
-            type="User" />
+            type="github.leavesc.databindingsamples.model.User" />
     </data>
 
     <LinearLayout

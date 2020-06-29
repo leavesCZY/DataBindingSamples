@@ -5,17 +5,17 @@
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.model.Image" />
+        <import type="github.leavesc.databindingsamples.model.Image" />
 
-        <import type="leavesc.hello.databindingsamples.Main9Activity.Handler" />
+        <import type="github.leavesc.databindingsamples.Main9Activity" />
 
         <variable
             name="image"
-            type="Image" />
+            type="github.leavesc.databindingsamples.model.Image" />
 
         <variable
             name="handler"
-            type="Handler" />
+            type="Main9Activity.Handler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

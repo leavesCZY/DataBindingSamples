@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.model.User" />
+        <import type="github.leavesc.databindingsamples.model.User" />
 
         <variable
             name="userInfo"
-            type="User" />
+            type="github.leavesc.databindingsamples.model.User" />
     </data>
 
     <TextView

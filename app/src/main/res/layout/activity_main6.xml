@@ -3,19 +3,19 @@
 
     <data>
 
-        <import type="leavesc.hello.databindingsamples.model.User" />
+        <import type="github.leavesc.databindingsamples.model.User" />
 
-        <import type="leavesc.hello.databindingsamples.Main6Activity.UserPresenter" />
+        <import type="github.leavesc.databindingsamples.Main6Activity" />
 
-        <import type="leavesc.hello.databindingsamples.StringUtils" />
+        <import type="github.leavesc.databindingsamples.StringUtils" />
 
         <variable
             name="userInfo"
-            type="User" />
+            type="github.leavesc.databindingsamples.model.User" />
 
         <variable
             name="userPresenter"
-            type="UserPresenter" />
+            type="Main6Activity.UserPresenter" />
     </data>
 
     <LinearLayout

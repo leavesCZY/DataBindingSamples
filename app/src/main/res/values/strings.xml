@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">DataBindingSamples</string>
     <string name="format">%s is %s</string>
-    <string name="changeImageUrl">改变图片Url</string>
-    <string name="blue">蓝色</string>
-    <string name="red">红色</string>
 </resources>

@@ -11,7 +11,7 @@
 
         <fragment
             android:id="@+id/fragment_select"
-            android:name="leavesc.hello.databindingsamples.BlankFragment"
+            android:name="github.leavesc.databindingsamples.BlankFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
