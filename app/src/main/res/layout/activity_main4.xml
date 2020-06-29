@@ -3,24 +3,27 @@
 
     <data>
 
-        <import type="github.leavesc.databindingsamples.model.ObservableGoods" />
+        <import type="github.leavesc.databinding.ObservableGoods" />
 
-        <import type="github.leavesc.databindingsamples.Main4Activity" />
+        <import type="github.leavesc.databinding.MainActivity4" />
+
+        <import type="github.leavesc.databinding.MainActivity4.ObservableGoodsHandler" />
 
         <variable
             name="observableGoods"
-            type="github.leavesc.databindingsamples.model.ObservableGoods" />
+            type="ObservableGoods" />
 
         <variable
             name="observableGoodsHandler"
-            type="Main4Activity.ObservableGoodsHandler" />
+            type="ObservableGoodsHandler" />
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        tools:context=".MainActivity4">
 
         <TextView
             android:layout_width="match_parent"

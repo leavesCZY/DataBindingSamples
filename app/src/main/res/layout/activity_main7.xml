@@ -4,22 +4,25 @@
 
     <data>
 
-        <import type="github.leavesc.databindingsamples.Main7Activity" />
+        <import type="github.leavesc.databinding.MainActivity7" />
+        <import type="github.leavesc.databinding.MainActivity7.Handler" />
+        <import type="github.leavesc.databinding.UserBean" />
 
-        <import type="github.leavesc.databindingsamples.model.User" />
 
         <variable
             name="handler"
-            type="Main7Activity.Handler" />
+            type="Handler" />
 
         <variable
             name="userInfo"
-            type="github.leavesc.databindingsamples.model.User" />
+            type="UserBean" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:context=".MainActivity7"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical">
 
         <Button

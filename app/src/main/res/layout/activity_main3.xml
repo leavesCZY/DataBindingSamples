@@ -3,23 +3,26 @@
 
     <data>
 
-        <import type="github.leavesc.databindingsamples.model.Goods" />
+        <import type="github.leavesc.databinding.Goods" />
 
-        <import type="github.leavesc.databindingsamples.Main3Activity" />
+        <import type="github.leavesc.databinding.MainActivity3" />
+        <import type="github.leavesc.databinding.MainActivity3.GoodsHandler" />
 
         <variable
             name="goods"
-            type="github.leavesc.databindingsamples.model.Goods" />
+            type="Goods" />
 
         <variable
             name="goodsHandler"
-            type="Main3Activity.GoodsHandler" />
+            type="GoodsHandler" />
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:context=".MainActivity3"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
         android:padding="20dp">
 

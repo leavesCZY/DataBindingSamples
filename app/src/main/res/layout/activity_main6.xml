@@ -3,32 +3,42 @@
 
     <data>
 
-        <import type="github.leavesc.databindingsamples.model.User" />
+        <import type="github.leavesc.databinding.UserBean" />
 
-        <import type="github.leavesc.databindingsamples.Main6Activity" />
+        <import type="github.leavesc.databinding.MainActivity6" />
 
-        <import type="github.leavesc.databindingsamples.StringUtils" />
+        <import type="github.leavesc.databinding.MainActivity6.UserPresenter" />
+
+        <import type="github.leavesc.databinding.StringUtils" />
 
         <variable
             name="userInfo"
-            type="github.leavesc.databindingsamples.model.User" />
+            type="UserBean" />
 
         <variable
             name="userPresenter"
-            type="Main6Activity.UserPresenter" />
+            type="UserPresenter" />
+
+        <variable
+            name="stringUtils"
+            type="StringUtils" />
+
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
+        tools:context=".MainActivity6"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{()->userPresenter.onUserNameClick(userInfo)}"
-            android:text="@{StringUtils.toUpperCase(userInfo.name)}" />
+            android:text="@{stringUtils.toUpperCase(userInfo.name)}" />
 
         <TextView
             android:layout_width="match_parent"

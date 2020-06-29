@@ -7,11 +7,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        tools:context=".MainActivity11"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="match_parent">
 
         <fragment
             android:id="@+id/fragment_select"
-            android:name="github.leavesc.databindingsamples.BlankFragment"
+            android:name="github.leavesc.databinding.BlankFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

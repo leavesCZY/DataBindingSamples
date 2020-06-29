@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity2"
+            android:text="单向/双向 数据绑定" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity3"
+            android:text="BaseObservable" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity4"
+            android:text="ObservableField" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity5"
+            android:text="ObservableCollection" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity6"
+            android:text="事件绑定" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity7"
+            android:text="viewStub 和 include" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity8"
+            android:text="集合框架" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity9"
+            android:text="BindingAdapter 和 BindingConversion" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity10"
+            android:text="资源引用" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity11"
+            android:text="Fragment" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity12"
+            android:text="RecyclerView" />
+
+        <Button
+            style="@style/BtnStyle"
+            android:onClick="startActivity13"
+            android:text="ObservableArrayList" />
+
+    </LinearLayout>
+</ScrollView>

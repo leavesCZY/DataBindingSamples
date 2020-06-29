@@ -5,21 +5,26 @@
 
     <data>
 
-        <import type="github.leavesc.databindingsamples.model.Image" />
+        <import type="github.leavesc.databinding.Image" />
 
-        <import type="github.leavesc.databindingsamples.Main9Activity" />
+        <import type="github.leavesc.databinding.MainActivity9" />
+
+        <import type="github.leavesc.databinding.MainActivity9.Handler" />
 
         <variable
             name="image"
-            type="github.leavesc.databindingsamples.model.Image" />
+            type="Image" />
 
         <variable
             name="handler"
-            type="Main9Activity.Handler" />
+            type="Handler" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity9"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="match_parent">
 
         <ImageView
@@ -67,5 +72,5 @@
             android:textColor='@{"红色",default=@color/colorAccent}'
             app:layout_constraintTop_toBottomOf="@id/textView1" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>
