@@ -5,7 +5,7 @@
 
         <import type="github.leavesc.databinding.UserBean" />
 
-        <import type="github.leavesc.databinding.ObservableGoods" />
+        <import type="github.leavesc.databinding.ObservableGoodsBean" />
 
         <variable
             name="userInfo"
@@ -13,41 +13,38 @@
 
         <variable
             name="goods"
-            type="ObservableGoods" />
+            type="ObservableGoodsBean" />
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity2"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_margin="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".MainActivity2">
 
         <TextView
-            style="@style/titleTextStyle"
-            android:text="单向数据绑定" />
+            style="@style/TextViewStyle"
+            android:text="单向数据绑定：" />
 
         <TextView
-            android:id="@+id/tv_userName"
-            style="@style/titleTextStyle"
+            style="@style/TextViewStyle"
             android:text="@{userInfo.name}" />
 
         <TextView
-            style="@style/titleTextStyle"
+            style="@style/TextViewStyle"
             android:text="@{userInfo.password}" />
 
         <TextView
-            style="@style/titleTextStyle"
-            android:layout_marginTop="10dp"
-            android:text="双向数据绑定" />
+            style="@style/TextViewStyle"
+            android:text="双向数据绑定：" />
 
         <TextView
-            style="@style/titleTextStyle"
+            style="@style/TextViewStyle"
             android:text="@{goods.name}" />
 
         <EditText
-            style="@style/editTextStyle"
+            style="@style/EditTextStyle"
             android:text="@={goods.name}" />
 
     </LinearLayout>

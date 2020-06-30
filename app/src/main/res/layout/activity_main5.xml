@@ -25,29 +25,22 @@
 
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity5"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".MainActivity5">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
+            style="@style/TextViewStyle"
             android:text="@{list[index]}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="20dp"
+            style="@style/TextViewStyle"
             android:text="@{map[key]}" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:onClick="onClick"
             android:text="改变数据" />
 

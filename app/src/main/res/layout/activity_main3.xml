@@ -3,57 +3,47 @@
 
     <data>
 
-        <import type="github.leavesc.databinding.Goods" />
+        <import type="github.leavesc.databinding.GoodsBean" />
 
-        <import type="github.leavesc.databinding.MainActivity3" />
         <import type="github.leavesc.databinding.MainActivity3.GoodsHandler" />
 
         <variable
             name="goods"
-            type="Goods" />
+            type="GoodsBean" />
 
         <variable
             name="goodsHandler"
             type="GoodsHandler" />
-
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity3"
-        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        tools:context=".MainActivity3">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{goods.name}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{goods.details}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{String.valueOf(goods.price)}" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:onClick="@{()->goodsHandler.changeGoodsName()}"
-            android:text="改变属性 name 和 price"
-            android:textAllCaps="false" />
+            android:text="改变属性 name" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:onClick="@{()->goodsHandler.changeGoodsDetails()}"
-            android:text="改变属性 details 和 price"
-            android:textAllCaps="false" />
+            android:text="改变属性 details 和 price" />
 
     </LinearLayout>
 </layout>

@@ -11,7 +11,6 @@ import java.util.*
  * 时间：2020/6/29 23:00
  * 描述：
  * GitHub：https://github.com/leavesC
- * Blog：https://juejin.im/user/57c2ea9befa631005abd00c6
  */
 class MainActivity9 : AppCompatActivity() {
 
@@ -19,13 +18,13 @@ class MainActivity9 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMain9Binding =
             DataBindingUtil.setContentView(this, R.layout.activity_main9)
-        binding.setImage(Image("xxxxxxx"))
+        binding.setImage(ImageBean("xxxxxxx"))
         binding.handler = Handler()
     }
 
     class Handler {
-        fun onClick(image: Image): Boolean {
-            image.url.set("xxxxx" + Random().nextInt(1000))
+        fun onClick(imageBean: ImageBean): Boolean {
+            imageBean.url.set("xxxxx" + Random().nextInt(1000))
             return true
         }
     }

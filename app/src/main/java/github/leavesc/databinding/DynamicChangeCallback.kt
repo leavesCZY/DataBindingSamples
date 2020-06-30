@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
  * 时间：2020/6/29 23:07
  * 描述：
  * GitHub：https://github.com/leavesC
- * Blog：https://juejin.im/user/57c2ea9befa631005abd00c6
  */
 class DynamicChangeCallback<T>(private val adapter: RecyclerView.Adapter<*>) :
     OnListChangedCallback<ObservableList<T>>() {

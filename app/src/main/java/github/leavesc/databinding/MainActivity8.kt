@@ -11,7 +11,6 @@ import java.util.*
  * 时间：2020/6/29 22:58
  * 描述：
  * GitHub：https://github.com/leavesC
- * Blog：https://juejin.im/user/57c2ea9befa631005abd00c6
  */
 class MainActivity8 : AppCompatActivity() {
 

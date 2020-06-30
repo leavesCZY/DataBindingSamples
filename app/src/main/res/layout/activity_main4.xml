@@ -3,15 +3,13 @@
 
     <data>
 
-        <import type="github.leavesc.databinding.ObservableGoods" />
-
-        <import type="github.leavesc.databinding.MainActivity4" />
+        <import type="github.leavesc.databinding.ObservableGoodsBean" />
 
         <import type="github.leavesc.databinding.MainActivity4.ObservableGoodsHandler" />
 
         <variable
             name="observableGoods"
-            type="ObservableGoods" />
+            type="ObservableGoodsBean" />
 
         <variable
             name="observableGoodsHandler"
@@ -26,33 +24,26 @@
         tools:context=".MainActivity4">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{observableGoods.name}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{String.valueOf(observableGoods.price)}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{observableGoods.details}" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:onClick="@{()->observableGoodsHandler.changeGoodsName()}"
-            android:text="改变属性 name 和 price"
-            android:textAllCaps="false" />
+            android:text="改变属性 name 和 price" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:onClick="@{()->observableGoodsHandler.changeGoodsDetails()}"
-            android:text="改变属性 details 和 price"
-            android:textAllCaps="false" />
+            android:text="改变属性 details 和 price" />
 
     </LinearLayout>
 </layout>

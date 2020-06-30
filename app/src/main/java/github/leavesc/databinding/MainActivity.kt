@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
  * 时间：2020/6/29 22:18
  * 描述：
  * GitHub：https://github.com/leavesC
- * Blog：https://www.jianshu.com/u/9df45b87cfdf
  */
 class MainActivity : AppCompatActivity() {
 
