@@ -4,10 +4,9 @@
 
     <data>
 
-        <import type="github.leavesc.databinding.MainActivity7" />
         <import type="github.leavesc.databinding.MainActivity7.Handler" />
-        <import type="github.leavesc.databinding.UserBean" />
 
+        <import type="github.leavesc.databinding.UserBean" />
 
         <variable
             name="handler"
@@ -18,17 +17,15 @@
             type="UserBean" />
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity7"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".MainActivity7">
 
         <Button
             android:id="@+id/btn_show"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:onClick="@{handler::onClick}"
             android:text="显示" />
 

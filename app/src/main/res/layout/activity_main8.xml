@@ -41,42 +41,34 @@
             type="String" />
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity8"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:padding="10dp">
+        tools:context=".MainActivity8">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{array[1]}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{sparse[index]}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{list[index]}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{map[key]}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text='@{map["leavesC"]}' />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text='@{set.contains("xxx")?"xxx":key}' />
     </LinearLayout>
 </layout>

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <import type="github.leavesc.databinding.ImageBean" />
-
-        <import type="github.leavesc.databinding.MainActivity9" />
 
         <import type="github.leavesc.databinding.MainActivity9.Handler" />
 
@@ -20,12 +17,11 @@
             type="Handler" />
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity9"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_height="match_parent">
+        tools:context=".MainActivity9">
 
         <ImageView
             android:id="@+id/image"
@@ -36,41 +32,30 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:onClick="@{()->handler.onClick(image)}"
-            android:text='@{"改变图片Url"}'
-            android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/image" />
+            android:text='@{"改变图片Url"}' />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text='@{"xxx"}'
-            android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/button" />
+            style="@style/BtnStyle"
+            android:text='@{"xxx"}' />
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:layout_marginTop="30dp"
             android:background='@{"红色"}'
             android:padding="20dp"
             android:text="红色背景蓝色字"
-            android:textColor='@{"蓝色"}'
-            app:layout_constraintTop_toBottomOf="@id/textView" />
+            android:textColor='@{"蓝色"}' />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            style="@style/BtnStyle"
             android:background='@{"蓝色"}'
             android:padding="20dp"
             android:text="蓝色背景红色字"
-            android:textColor='@{"红色",default=@color/colorAccent}'
-            app:layout_constraintTop_toBottomOf="@id/textView1" />
+            android:textColor='@{"红色",default=@color/colorAccent}' />
 
     </LinearLayout>
 </layout>

@@ -23,8 +23,8 @@ class BlankFragment : Fragment() {
     ): View? {
         val binding: FragmentBlankBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_blank, container, false)
-        binding.setHint("Hello")
-        return binding.getRoot()
+        binding.hint = "Hello"
+        return binding.root
     }
 
 }

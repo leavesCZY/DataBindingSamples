@@ -19,13 +19,12 @@ class MainActivity8 : AppCompatActivity() {
         val binding: ActivityMain8Binding =
             DataBindingUtil.setContentView(this, R.layout.activity_main8)
         binding.list = ArrayList()
-        val map: MutableMap<String, String> =
-            HashMap()
+        val map = mutableMapOf<String, String>()
         map["leavesC"] = "Hi"
+        val set = mutableSetOf<String>()
+        set.add("xxx")
         binding.map = map
         binding.key = "leavesC"
-        val set: MutableSet<String> = HashSet()
-        set.add("xxx")
         binding.set = set
         binding.array = arrayOf("Hi", "hello")
     }

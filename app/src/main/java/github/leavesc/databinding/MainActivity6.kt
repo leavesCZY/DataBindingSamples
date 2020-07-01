@@ -16,14 +16,11 @@ import github.leavesc.databinding.databinding.ActivityMain6Binding
  */
 class MainActivity6 : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMain6Binding
-
-    private lateinit var user: UserBean
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main6)
-        user = UserBean("leavesC", "12345")
+        val binding: ActivityMain6Binding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main6)
+        val user = UserBean("leavesC", "12345")
         binding.userInfo = user
         binding.userPresenter = UserPresenter(this, user, binding)
     }

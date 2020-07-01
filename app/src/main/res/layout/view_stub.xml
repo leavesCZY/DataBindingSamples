@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#abc"
+        android:background="#42A5F5"
         android:gravity="center"
         android:padding="20dp"
         android:text="@{userInfo.name}" />

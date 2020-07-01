@@ -29,10 +29,7 @@ class UserAdapter(private val userList: List<UserBean>) :
         return UserAdapterHolder(binding)
     }
 
-    override fun onBindViewHolder(
-        holder: UserAdapterHolder,
-        position: Int
-    ) {
+    override fun onBindViewHolder(holder: UserAdapterHolder, position: Int) {
         holder.getBinding().user = userList[position]
     }
 
@@ -40,8 +37,7 @@ class UserAdapter(private val userList: List<UserBean>) :
         return userList.size
     }
 
-    inner class UserAdapterHolder(private val binding: ItemUserBinding) :
-        ViewHolder(binding.root) {
+    inner class UserAdapterHolder(private val binding: ItemUserBinding) : ViewHolder(binding.root) {
 
         fun getBinding(): ItemUserBinding {
             return binding

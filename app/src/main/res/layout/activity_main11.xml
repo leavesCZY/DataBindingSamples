@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity11">
 
-    <data>
-
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <fragment
+        android:id="@+id/fragment_select"
+        android:name="github.leavesc.databinding.BlankFragment"
         android:layout_width="match_parent"
-        tools:context=".MainActivity11"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" />
 
-        <fragment
-            android:id="@+id/fragment_select"
-            android:name="github.leavesc.databinding.BlankFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,6 @@
 
         <import type="github.leavesc.databinding.UserBean" />
 
-        <import type="github.leavesc.databinding.MainActivity6" />
-
         <import type="github.leavesc.databinding.MainActivity6.UserPresenter" />
 
         <import type="github.leavesc.databinding.StringUtils" />
@@ -18,42 +16,31 @@
         <variable
             name="userPresenter"
             type="UserPresenter" />
-
-        <variable
-            name="stringUtils"
-            type="StringUtils" />
-
-
     </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        tools:context=".MainActivity6"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".MainActivity6">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:onClick="@{()->userPresenter.onUserNameClick(userInfo)}"
-            android:text="@{stringUtils.toUpperCase(userInfo.name)}" />
+            android:text="@{StringUtils.INSTANCE.toUpperCase(userInfo.name)}" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextViewStyle"
             android:text="@{userInfo.password}" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
             android:afterTextChanged="@{userPresenter.afterTextChanged}"
             android:hint="用户名" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
             android:afterTextChanged="@{userPresenter.afterUserPasswordChanged}"
             android:hint="密码" />
 

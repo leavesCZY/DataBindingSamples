@@ -18,13 +18,13 @@ class MainActivity12 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main12)
         val rvList = findViewById<RecyclerView>(R.id.rvList)
-        rvList.layoutManager = LinearLayoutManager(this)
-        val userList: MutableList<UserBean> = ArrayList<UserBean>()
+        val userList = mutableListOf<UserBean>()
         for (i in 0..19) {
             val user = UserBean("user_$i", (Random().nextInt() * 4).toString())
             userList.add(user)
         }
         val userAdapter = UserAdapter(userList)
+        rvList.layoutManager = LinearLayoutManager(this)
         rvList.adapter = userAdapter
     }
 

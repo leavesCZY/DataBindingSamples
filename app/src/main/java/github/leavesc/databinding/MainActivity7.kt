@@ -16,22 +16,24 @@ import github.leavesc.databinding.databinding.ViewStubBinding
  */
 class MainActivity7 : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMain7Binding
-
-    private lateinit var user: UserBean
+    private val binding: ActivityMain7Binding by lazy {
+        DataBindingUtil.setContentView(this, R.layout.activity_main7) as ActivityMain7Binding
+    }
 
     private val TAG = "Main7Activity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main7)
-        binding.setHandler(Handler())
-        user = UserBean("leavesC", "123456")
+        binding.handler = Handler()
+        val user = UserBean("leavesC", "123456")
         binding.userInfo = user
-        binding.viewStub.setOnInflateListener { _, inflated -> //如果在 xml 中没有使用 bind:userInfo="@{userInf}" 对 viewStub 进行数据绑定
+        binding.viewStub.setOnInflateListener { _, inflated ->
+            //如果在 xml 中没有使用 bind:userInfo="@{userInf}" 对 viewStub 进行数据绑定
             //那么可以在此处进行手动绑定
-            val viewStubBinding: ViewStubBinding = DataBindingUtil.bind(inflated)!!
-            viewStubBinding.userInfo = user
+            val viewStubBinding: ViewStubBinding? = DataBindingUtil.bind(inflated)
+            viewStubBinding?.let {
+                viewStubBinding.userInfo = user
+            }
             Log.e(TAG, "onInflate")
         }
     }
@@ -39,7 +41,7 @@ class MainActivity7 : AppCompatActivity() {
     inner class Handler {
         fun onClick(v: View) {
             if (!binding.viewStub.isInflated) {
-                binding.viewStub.viewStub!!.inflate()
+                binding.viewStub.viewStub?.inflate()
             }
         }
     }

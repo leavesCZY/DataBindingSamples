@@ -14,11 +14,9 @@
         tools:context=".MainActivity10">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/BtnStyle"
             android:paddingLeft="@{flag ? @dimen/paddingBig:@dimen/paddingSmall}"
-            android:text='@{@string/format("leavesC", "Ye")}'
-            android:textAllCaps="false" />
+            android:text='@{@string/format("leavesC", "Ye")}' />
 
     </LinearLayout>
 </layout>
