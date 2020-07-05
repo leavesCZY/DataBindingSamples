@@ -181,7 +181,7 @@ Databinding 同样是支持在 **Fragment** 和 **RecyclerView** 中使用 。�
     }
 ```
 
-**以上实现数据绑定的方式，每当绑定的变量发生变化的时候，都需要重新向 ViewDataBinding 传递新的变量值才能刷新 UI 。接下来看如何实现自动刷新 UI **
+**以上实现数据绑定的方式，每当绑定的变量发生变化的时候，都需要重新向 ViewDataBinding 传递新的变量值才能刷新 UI 。接下来看如何实现自动刷新 UI**
 
 ### 二、单向数据绑定
 
@@ -1384,3 +1384,7 @@ class MainActivity13 : AppCompatActivity() {
 ```
 
 ![](https://upload-images.jianshu.io/upload_images/2552605-80ca4a10b9e501d1.gif?imageMogr2/auto-orient/strip)
+
+
+
+Demo 下载：[DataBindingSamples](https://github.com/leavesC/DataBindingSamples)
