@@ -21,7 +21,7 @@ android {
 
 打开布局文件，选中根布局的 **ViewGroup**，按住 **Alt + 回车键**，点击 “**Convert to data binding layout**”，就可以自动生成 DataBinding 需要的布局规则
 
-![](https://upload-images.jianshu.io/upload_images/2552605-80615291cab52846.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://images.xiaozhuanlan.com/photo/2020/30672cb9ed72c87ee0dad7dc7dbd74a5.jpg)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -140,7 +140,7 @@ data class UserBean(var name: String, var password: String)
     }
 ```
 
-![](https://upload-images.jianshu.io/upload_images/2552605-2f56ccd36885cbec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://images.xiaozhuanlan.com/photo/2020/3309050468c13b99be6801a59c5a94c3.png)
 
 由于 `@{userInfo.name}`在布局文件中并没有明确的值，所以在预览视图中什么都不会显示，不便于观察文本的大小和字体颜色等属性，此时可以为之设定默认值（文本内容或者是字体大小等属性都适用），默认值将只在预览视图中显示，且默认值不能包含引号
 
@@ -467,7 +467,7 @@ class MainActivity5 : AppCompatActivity() {
 }
 ```
 
-![](https://upload-images.jianshu.io/upload_images/2552605-d17f330dd475302a.gif?imageMogr2/auto-orient/strip)
+![](https://images.xiaozhuanlan.com/photo/2020/821ab561120ee71503f8751c353946b1.gif)
 
 ### 三、双向数据绑定
 
@@ -544,7 +544,7 @@ class MainActivity5 : AppCompatActivity() {
     }
 ```
 
-![](https://upload-images.jianshu.io/upload_images/2552605-1062ba66486cf915.gif?imageMogr2/auto-orient/strip)
+![](https://images.xiaozhuanlan.com/photo/2020/d80c18e5480e78a0b66c8faac0455488.gif)
 
 ### 四、事件绑定
 
@@ -637,7 +637,7 @@ class MainActivity5 : AppCompatActivity() {
 
 方法引用的方式与调用函数的方式类似，既可以选择保持事件回调方法的签名一致：**@{userPresenter.afterTextChanged}**，此时方法名可以不一样，但方法参数和返回值必须和原始的回调函数保持一致。也可以引用不遵循默认签名的函数：**@{()->userPresenter.onUserNameClick(userInfo)}**，这里用到了 Lambda 表达式，这样就可以不遵循默认的方法签名，将`userInfo`对象直接传回点击方法中。此外，也可以使用方法引用 **::** 的形式来进行事件绑定
 
-![](https://upload-images.jianshu.io/upload_images/2552605-aacd077479c6e82f.gif?imageMogr2/auto-orient/strip)
+![](https://images.xiaozhuanlan.com/photo/2020/950b0de899c83b226e5922b3496e20f7.gif)
 
 ### 五、使用类方法
 
@@ -915,7 +915,7 @@ fun setText(view: Button, text: String) {
 
 这样，整个工程中使用到了 **"android:text"** 这个属性的控件，其显示的文本就会多出一个后缀
 
-![](https://upload-images.jianshu.io/upload_images/2552605-ebfe5841e41ff1d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://images.xiaozhuanlan.com/photo/2020/e3219804086630aabdf40ccccdd6cb80.png)
 
 ### 九、BindingConversion
 
@@ -939,7 +939,7 @@ xml 文件
             android:text='@{"xxx"}' />
 ```
 
-![](https://upload-images.jianshu.io/upload_images/2552605-2dff0567a4235943.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://images.xiaozhuanlan.com/photo/2020/b883c82e871b5d2b094ed607ef4c16ea.gif)
 
 可以看到，对于 Button 来说，BindingAdapter 和 BindingConversion 同时生效了，而 BindingConversion 的优先级要高些
 
@@ -996,8 +996,7 @@ fun convertStringToColor(str: String): Int {
     }
 }
 ```
-
-![](https://upload-images.jianshu.io/upload_images/2552605-c9abfc123cc90bc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://images.xiaozhuanlan.com/photo/2020/bdaae84de9ff7ae98673706b5e1c7508.png)
 
 ### 十、Array、List、Set、Map ...
 
@@ -1383,8 +1382,6 @@ class MainActivity13 : AppCompatActivity() {
 }
 ```
 
-![](https://upload-images.jianshu.io/upload_images/2552605-80ca4a10b9e501d1.gif?imageMogr2/auto-orient/strip)
-
-
+![](https://images.xiaozhuanlan.com/photo/2020/4a5f4e3d8566a996636db837d2f7e2ee.gif)
 
 Demo 下载：[DataBindingSamples](https://github.com/leavesC/DataBindingSamples)
