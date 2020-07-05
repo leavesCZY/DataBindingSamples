@@ -52,6 +52,16 @@ fun loadImage(view: ImageView, url: String) {
     Log.e(MainActivity9.TAG, "loadImage url : $url")
 }
 
+//@BindingAdapter("android:text")
+//fun setText(view: Button, text: String) {
+//    view.text = "$text-Button"
+//}
+//
+//@BindingConversion
+//fun conversionString(text: String): String? {
+//    return "$text-conversionString"
+//}
+
 @BindingConversion
 fun convertStringToDrawable(str: String): Drawable {
     return when (str) {
