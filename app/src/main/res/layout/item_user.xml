@@ -9,13 +9,18 @@
             name="user"
             type="UserBean" />
 
+        <variable
+            name="onCLick"
+            type="android.view.View.OnClickListener" />
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="10dp">
+        android:paddingLeft="10dp"
+        android:onClick="@{onCLick}">
 
         <TextView
             android:id="@+id/tvName"
